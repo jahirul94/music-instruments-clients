@@ -5,6 +5,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
+import DashBoard from "../Pages/DashBoard/DashBoard/DashBoard";
+import StudentDashboard from "../Pages/DashBoard/StudentDashboard/StudentDashboard";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -34,6 +36,16 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path :"/dashboard",
+      element : <DashBoard></DashBoard>,
+      children : [
+        {
+          path : "students",
+          element : <StudentDashboard></StudentDashboard>
+        }
+      ]
+    }
   ]);
 
   export default router ;
