@@ -1,0 +1,93 @@
+[
+    {
+      "instrument": "Piano",
+      "instructorName": "John Smith",
+      "image": "https://example.com/john_smith.jpg",
+      "email": "johnsmith@example.com",
+      "className": "Beginner Piano",
+      "numClasses": 5,
+      "rating": 3.5
+    },
+    {
+      "instrument": "Guitar",
+      "instructorName": "Sarah Johnson",
+      "image": "https://example.com/sarah_johnson.jpg",
+      "email": "sarahjohnson@example.com",
+      "className": "Intermediate Guitar",
+      "numClasses": 8,
+      "rating": 4.8
+    },
+    {
+      "instrument": "Violin",
+      "instructorName": "Michael Anderson",
+      "image": "https://example.com/michael_anderson.jpg",
+      "email": "michaelanderson@example.com",
+      "className": "Advanced Violin",
+      "numClasses": 6,
+      "rating": 4.2
+    },
+    {
+      "instrument": "Drums",
+      "instructorName": "Emily Davis",
+      "image": "https://example.com/emily_davis.jpg",
+      "email": "emilydavis@example.com",
+      "className": "Beginner Drums",
+      "numClasses": 4,
+      "rating": 4.6
+    },
+    {
+      "instrument": "Saxophone",
+      "instructorName": "Robert Wilson",
+      "image": "https://example.com/robert_wilson.jpg",
+      "email": "robertwilson@example.com",
+      "className": "Intermediate Saxophone",
+      "numClasses": 7,
+      "rating": 4.3
+    },
+    {
+      "instrument": "Flute",
+      "instructorName": "Jennifer Lee",
+      "image": "https://example.com/jennifer_lee.jpg",
+      "email": "jenniferlee@example.com",
+      "className": "Beginner Flute",
+      "numClasses": 3,
+      "rating": 4.7
+    },
+    {
+      "instrument": "Trumpet",
+      "instructorName": "David Thompson",
+      "image": "https://example.com/david_thompson.jpg",
+      "email": "davidthompson@example.com",
+      "className": "Advanced Trumpet",
+      "numClasses": 9,
+      "rating": 4.4
+    },
+    {
+      "instrument": "Bass Guitar",
+      "instructorName": "Jessica Miller",
+      "image": "https://example.com/jessica_miller.jpg",
+      "email": "jessicamiller@example.com",
+      "className": "Intermediate Bass Guitar",
+      "numClasses": 6,
+      "rating": 4.9
+    },
+    {
+      "instrument": "Cello",
+      "instructorName": "Thomas Harris",
+      "image": "https://example.com/thomas_harris.jpg",
+      "email": "thomasharris@example.com",
+      "className": "Advanced Cello",
+      "numClasses": 5,
+      "rating": 4.1
+    },
+    {
+      "instrument": "Vocal",
+      "instructorName": "Amy Roberts",
+      "image": "https://example.com/amy_roberts.jpg",
+      "email": "amyroberts@example.com",
+      "className": "Beginner Vocal",
+      "numClasses": 4,
+      "rating": 4.5
+    }
+  ]
+  

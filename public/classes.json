@@ -1,0 +1,87 @@
+[
+    {
+      "className": "Piano",
+      "image": "https://s3-ap-southeast-2.amazonaws.com/ish-oncourse-scc/489e8107-4660-4790-aeeb-22dfcb5b52d8",
+      "instructorName": "John Smith",
+      "availableSeats": 5,
+      "price": 50
+    },
+    {
+      "className": "Guitar",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
+      "instructorName": "John Smith",
+      "availableSeats": 3,
+      "price": 40
+    },
+    {
+      "className": "Violin",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Violin_VL100.png",
+      "instructorName": "Sarah Johnson",
+      "availableSeats": 2,
+      "price": 45
+    },
+    {
+      "className": "Drums",
+      "image": "https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/648352_v5fydt.jpg",
+      "instructorName": "Michael Anderson",
+      "availableSeats": 4,
+      "price": 55
+    },
+    {
+      "className": "Saxophone",
+      "image": "https://virtualpiano.net/wp-content/uploads/2021/12/Play-Virtual-Saxophone-online-Virtual-Piano.jpg",
+      "instructorName": "Emily Davis",
+      "availableSeats": 6,
+      "price": 60
+    },
+    {
+      "className": "Flute",
+      "image": "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202211/whatsapp_image_2022-11-21_at_11-sixteen_nine.jpeg?size=1200:675",
+      "instructorName": "Robert Wilson",
+      "availableSeats": 3,
+      "price": 35
+    },
+    {
+      "className": "Trumpet",
+      "image": "https://img.freepik.com/free-photo/shiny-brass-trumpet-golden-style-instrument-generative-ai_188544-7809.jpg",
+      "instructorName": "Jennifer Lee",
+      "availableSeats": 5,
+      "price": 50
+    },
+    {
+      "className": "Cello",
+      "image": "https://cdn-fiajh.nitrocdn.com/zuOabcetURCwJdSRWvhRDrLDLzwtRozl/assets/images/optimized/rev-919329b/wp-content/uploads/2020/11/cellist-playing-upper-range-dolce-violins-scaled.jpeg",
+      "instructorName": "David Thompson",
+      "availableSeats": 2,
+      "price": 45
+    },
+    {
+      "className": "Bass Guitar",
+      "image": "https://www.liveabout.com/thmb/ESIR6f0BBsF8lSmuj9-eEc-fdS8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/argentina-buenos-aires-man-playing-bass-guitar-164186899-58e5624f5f9b58ef7eac0f5b.jpg",
+      "instructorName": "Jessica Miller",
+      "availableSeats": 4,
+      "price": 40
+    },
+    {
+      "className": "Harp",
+      "image": "https://global-uploads.webflow.com/60be912aa3964ce01e0271d8/617c8a975066a74d2bf6d1cc_beginners-guide-harps.jpg",
+      "instructorName": "Thomas Harris",
+      "availableSeats": 1,
+      "price": 70
+    },
+    {
+      "className": "Clarinet",
+      "image": "https://cdn.britannica.com/39/19239-050-DA406938/Clarinet.jpg",
+      "instructorName": "Thomas Harris",
+      "availableSeats": 3,
+      "price": 45
+    },
+    {
+      "className": "Trombone",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Posaune.jpg",
+      "instructorName": "Amy Roberts",
+      "availableSeats": 2,
+      "price": 55
+    }
+  ]
+  
