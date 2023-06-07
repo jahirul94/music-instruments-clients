@@ -14,7 +14,7 @@ const SocialLogin = () => {
         })
     }
     return (
-        <div className='flex justify-center mb-5'>
+        <div className='flex justify-center -mt-4 mb-5'>
             <button onClick={handleLoginWithGoogle} className='flex btn btn-primary text-white w-[85%]'>Login With <FaGoogle className='text-xl'></FaGoogle></button>
         </div>
     );

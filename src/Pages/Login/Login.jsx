@@ -2,17 +2,20 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const Login = () => {
+    const [ error , setError] = useState("")
     const {signIn} = useAuth();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         signIn(data.email , data.password)
         .then(result =>{
             const loggedUser = result.user ;
+            setError('')
         })
         .catch(err => {
-            console.log(err.message);
+            setError(err.message);
         })
     };
 
@@ -39,6 +42,7 @@ const Login = () => {
                             <label className="label">
                                 <p> New at here ? <Link to="/register">Sign Up </Link></p>
                             </label>
+                            <p className="text-red-600">{error}</p>
                         </div>
                         <input className="btn btn-primary" type="submit" value="Login" />
                     </form>

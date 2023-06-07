@@ -1,10 +1,33 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { createUser, updateUserProfile } = useAuth();
+    const [error, setError] = useState("")
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const onSubmit = data => {
+        if (data.password !== data.confirmPassword) {
+            setError("Password and Confirm Password don't match")
+            return
+        }
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                updateUserProfile(data.name, data.photo)
+                .then(()=>{
+                    setError("")
+                    reset();
+                })
+                .catch(err =>console.log(err.message))
+            })
+            .catch(err => {
+                setError(err.message)
+            })
+    };
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -17,19 +40,39 @@ const Register = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text font-semibold">Name</span>
                             </label>
-                            <input type="email" {...register("email")} placeholder="email" className="input input-bordered" />
+                            <input type="text" {...register("name")} placeholder="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text font-semibold">Photo URL</span>
                             </label>
-                            <input type="password" {...register("password")} placeholder="password" className="input input-bordered" />
-                            <label className="label">
-                                <p> Already have an Account ? <Link to="/register">Login</Link></p>
-                            </label>
+                            <input type="text" {...register("photo")} placeholder="Photo URL" className="input input-bordered" />
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Email</span>
+                            </label>
+                            <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Password</span>
+                            </label>
+                            <input type="password" {...register("password", { minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/ })} placeholder="password" className="input input-bordered" required />
+                            {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                            {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters or Upper</p>}
+                            {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase and one special character.</p>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Confirm Password</span>
+                            </label>
+                            <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" />
+                        </div>
+                        <p className="text-red-600">{error}</p>
+                        <p> Already have an Account ? <Link to="/login">Login</Link></p>
                         <input className="btn btn-primary" type="submit" value="Sign up" />
                     </form>
                     <SocialLogin></SocialLogin>
