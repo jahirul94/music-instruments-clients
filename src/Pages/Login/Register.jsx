@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const [error, setError] = useState("")
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         if (data.password !== data.confirmPassword) {
@@ -18,11 +20,34 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 updateUserProfile(data.name, data.photo)
-                .then(()=>{
-                    setError("")
-                    reset();
-                })
-                .catch(err =>console.log(err.message))
+                    .then(() => {
+                        const saveUser = { name: data.name , email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
+
+                    })
+                    .catch(err => console.log(err.message))
             })
             .catch(err => {
                 setError(err.message)
