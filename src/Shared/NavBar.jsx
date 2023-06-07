@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     const navItem = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
-        <li><a>Item 3</a></li>
+        <li><Link>Home</Link></li>
+        <li><Link>Instructors</Link></li>
+        <li><Link>Classes</Link></li>
+        <li><Link>Dashboard</Link></li>
+        <li><Link to="/login">Login</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -16,7 +19,7 @@ const NavBar = () => {
                         {navItem}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">Rocking Music Instrument</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
