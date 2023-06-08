@@ -33,7 +33,7 @@ const InstructorClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            data.map((sc, index) => <tr key={sc._id}>
+                            data?.map((sc, index) => <tr key={sc._id}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <div className="flex items-center space-x-3">
