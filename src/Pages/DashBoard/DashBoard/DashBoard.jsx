@@ -1,7 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructors from "../../../hooks/useInstructors";
 
 const DashBoard = () => {
-    const isInstructor = true ;
+    const [isAdmin] = useAdmin() ;
+    const [isInstructor] = useInstructors();
+    console.log(isInstructor);
+    
 
     return (
         <div className="drawer lg:drawer-open">
@@ -15,12 +20,15 @@ const DashBoard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                  {
-                   isInstructor ? <> <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
-                   <li><Link to="/dashboard/instructorClasses">My Classes </Link></li></> : 
+                  isAdmin && <><li><Link to="">Manage Classes</Link></li>
+                  <li><Link>Manage Users</Link></li></> ||
+                  
+                   isInstructor && <> <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
+                   <li><Link to="/dashboard/instructorClasses">My Classes </Link></li></> ||
+
                    <><li><Link to="/dashboard/studentdashboard">My Selected Classes</Link></li>
                      <li><Link>My Enrolled Classes</Link></li></>
-                 }
-                    
+                 } 
                 </ul>
 
             </div>
