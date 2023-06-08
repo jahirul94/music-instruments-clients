@@ -5,7 +5,6 @@ import useInstructors from "../../../hooks/useInstructors";
 const DashBoard = () => {
     const [isAdmin] = useAdmin() ;
     const [isInstructor] = useInstructors();
-    console.log(isInstructor);
     
 
     return (
@@ -30,7 +29,6 @@ const DashBoard = () => {
                      <li><Link>My Enrolled Classes</Link></li></>
                  } 
                 </ul>
-
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const Classes = () => {
   const { user } = useAuth();
   const classes = useLoaderData();
+  console.log(classes);
   const handleEnrollClass = enrollClass => {
     console.log(enrollClass);
     const {className , image , instructorName , price } = enrollClass ;
