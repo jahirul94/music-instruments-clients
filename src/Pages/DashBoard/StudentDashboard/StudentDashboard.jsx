@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import { FaTrash } from 'react-icons/fa';
+import Swal from "sweetalert2";
 
 const StudentDashboard = () => {
+    const [reload , setReload] = useState(false)
     const { user } = useAuth();
     const [cartItems, setCartItems] = useState([])
     const url = `http://localhost:5000/studentClasses?email=${user?.email}`
@@ -11,8 +14,26 @@ const StudentDashboard = () => {
         })
             .then(res => res.json())
             .then(data => setCartItems(data))
-    }, [url])
-    console.log(cartItems);
+    }, [url , reload])
+    const handleDelete = (id) =>{
+          fetch(`http://localhost:5000/studentClasses/${id}` , {
+            method : "DELETE"
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount>0){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'this class delete from cart',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  setReload(!reload)
+            }
+          })
+    }
+    
     return (
         <div className="mx-10 my-10">
             <div className="overflow-x-auto">
@@ -25,6 +46,7 @@ const StudentDashboard = () => {
                             <th>Class Name</th>
                             <th>Instructor</th>
                             <th>Price</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,8 +64,8 @@ const StudentDashboard = () => {
                                 </td>
                                 <td>{cartItem.className}</td>
                                 <td>{cartItem.instructorName}</td>
-                                <td>${cartItem.price}</td>
-                                <td></td>
+                                <td className="text-right">${cartItem.price}</td>
+                                <td><button onClick={()=>handleDelete(cartItem._id)}  className="btn btn-outline"><FaTrash></FaTrash></button></td>
                             </tr>)
                         }
 
