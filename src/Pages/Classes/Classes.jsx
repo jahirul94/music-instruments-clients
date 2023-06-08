@@ -2,7 +2,10 @@ import { useLoaderData } from "react-router-dom";
 
 const Classes = () => {
     const classes = useLoaderData();
-    console.log(classes);
+    const  handleEnrollClass = enrollClass =>{
+       console.log(enrollClass);
+    }
+    
     return (
         <div className="grid gap-4 px-6 sm:grid-cols-1 lg:grid-cols-3">
              {
@@ -14,7 +17,7 @@ const Classes = () => {
                   <h2 className="text-lg font-semibold">Available Seats : {singleClass.availableSeats}</h2>
                   <h2 className="text-lg font-semibold">Price : ${singleClass.price}</h2>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button onClick={()=>handleEnrollClass(singleClass)} className="btn btn-primary w-full">Enroll</button>
                   </div>
                 </div>
               </div> )

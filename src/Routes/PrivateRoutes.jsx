@@ -4,7 +4,6 @@ import useAuth from "../hooks/useAuth";
 
 const PrivateRoutes = ({children}) => {
     const { user, loading } = useAuth();
-
     if(loading){
         return <progress className="progress w-56"></progress>
     }
@@ -12,7 +11,7 @@ const PrivateRoutes = ({children}) => {
     if (user) {
         return children;
     }
-   return <Navigate to="/login"></Navigate>
+   return <Navigate to="/login"replace></Navigate>
 };
 
 export default PrivateRoutes;

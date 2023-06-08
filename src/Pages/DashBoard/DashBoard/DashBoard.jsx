@@ -1,3 +1,4 @@
+import { Link, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
     return (
@@ -6,14 +7,14 @@ const DashBoard = () => {
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
+                   <Outlet></Outlet>
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <li><Link>My Selected Classes</Link></li>
+                    <li><Link>My Enrolled Classes</Link></li>
                 </ul>
 
             </div>
