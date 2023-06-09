@@ -6,8 +6,7 @@ import useUser from "../../../hooks/useUser";
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
-    const [data , refetch ] = useUser();
-
+    const [data , refetch ] = useUser(); 
     const handleAction = (action , user ) =>{
          axiosSecure.patch(`/action/${user?._id}?action=${action}`)
          .then(data =>{

@@ -2,11 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { FaEdit } from 'react-icons/fa';
+import useFeedback from "../../../hooks/useFeedback";
+import { useState } from "react";
+
 
 const InstructorClasses = () => {
+    const [ feedbacks ] = useFeedback();
+    const [feedback , setFeedback] = useState([]);
     const [axiosSecure] = useAxiosSecure();
     const { user } = useAuth();
-
     const { data } = useQuery({
         queryKey: ['classes', user?.email],
         queryFn: async () => {
@@ -15,6 +19,10 @@ const InstructorClasses = () => {
         }
     })
 
+    const handleShowFeedback = (id) => {
+      const item = feedbacks.filter(f => f.itemId == id)
+      setFeedback(item[0]);
+    }
     return (
         <div className="mx-4 my-4">
             <div className="overflow-x-auto">
@@ -46,14 +54,23 @@ const InstructorClasses = () => {
                                 </td>
                                 <td>{sc.className}</td>
                                 <td className="text-right">${sc.price}</td>
-                                <td>pending</td>
+                                <td className="text-primary">{sc.status}</td>
                                 <td>0</td>
-                                <td>Feedback</td>
+                                <td onClick={() => window.my_modal_5.showModal()}><button onClick={() => handleShowFeedback(sc._id)} className="underline">feedback</button></td>
                                 <td><FaEdit className="text-xl"></FaEdit></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
+                {/* Open the modal using ID.showModal() method */}
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <form method="dialog" className="modal-box">
+                       <p className="text-lg mx-4 ">{feedback?.feedback} </p>
+                        <div className="modal-action">
+                            <button className="btn">Close</button>
+                        </div>
+                    </form>
+                </dialog>
             </div>
         </div>
     );
