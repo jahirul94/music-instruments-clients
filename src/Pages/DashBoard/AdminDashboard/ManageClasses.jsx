@@ -9,6 +9,7 @@ const ManageClasses = () => {
     const ref = useRef();
     const [updateId, setUpdateId] = useState(null)
     const [axiosSecure] = useAxiosSecure();
+    
 
     const handleAction = (action, user) => {
         axiosSecure.patch(`/adminAction/${user?._id}?action=${action}`)
@@ -29,9 +30,18 @@ const ManageClasses = () => {
     const handleSubmitForm = () => {
         const feedback = { feedback: ref.current.value, itemId: updateId }
         axiosSecure.post('/feedback', { feedback })
-        .then(data =>{
-            console.log(data);
-        })
+            .then(data => {
+                if(data.data.modifiedCount > 0 || data.data.insertedId){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `feedback send successfully!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    refetch()
+                }
+            })
     }
 
     return (
