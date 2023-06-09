@@ -1,13 +1,16 @@
 import { FaGoogle } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const { googleSignIn } = useAuth();
+    const navigate = useNavigate();
     const handleLoginWithGoogle = () =>{
         googleSignIn()
         .then(result =>{
             const loggedInUser = result.user ;
-            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email , role : "regular" }
+            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email , role : "regular" , image : loggedInUser.photoURL}
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -16,7 +19,14 @@ const SocialLogin = () => {
                 body: JSON.stringify(saveUser)
             })
                 .then(res => res.json())
-                .then(() => {})
+                .then(() => {
+                    Swal.fire(
+                        'Done!',
+                        'Your Account Login Successfully.',
+                        'success'
+                    )
+                    navigate("/")
+                })
         })
         .catch( err => {
             console.log(err.message);

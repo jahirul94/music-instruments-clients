@@ -29,11 +29,11 @@ const ManageUsers = () => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>Make Instructor</th>
-                        <th>Make Admin</th>
+                        <th className="text-lg font-bold">#</th>
+                        <th className="text-lg font-bold">User Name</th>
+                        <th className="text-lg font-bold">User Email</th>
+                        <th className="text-lg font-bold">Make Instructor</th>
+                        <th className="text-lg font-bold">Make Admin</th>
                     </tr>
                 </thead>
                 <tbody>

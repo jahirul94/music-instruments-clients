@@ -50,15 +50,15 @@ const ManageClasses = () => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Class Image</th>
-                            <th>Class name</th>
-                            <th>Instructor name</th>
-                            <th>Instructor email</th>
-                            <th> Available seats</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th className="text-center">Action</th>
+                            <th className="text-lg font-bold">#</th>
+                            <th className="text-lg font-bold">Class Image</th>
+                            <th className="text-lg font-bold">Class name</th>
+                            <th className="text-lg font-bold">Instructor name</th>
+                            <th className="text-lg font-bold">Instructor email</th>
+                            <th className="text-lg font-bold"> Available seats</th>
+                            <th className="text-lg font-bold">Price</th>
+                            <th className="text-lg font-bold">Status</th>
+                            <th className="text-center text-lg font-bold">Action</th>
                         </tr>
                     </thead>
                     <tbody>

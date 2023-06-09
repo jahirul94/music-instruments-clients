@@ -12,6 +12,7 @@ import AddAClass from "../Pages/DashBoard/InstructorDashboard/AddAClass";
 import InstructorClasses from "../Pages/DashBoard/InstructorDashboard/InstructorClasses";
 import ManageUsers from "../Pages/DashBoard/AdminDashboard/ManageUsers";
 import ManageClasses from "../Pages/DashBoard/AdminDashboard/ManageClasses";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -37,8 +38,7 @@ const router = createBrowserRouter([
         },
         {
           path : "/classes",
-          element : <Classes></Classes>,
-          loader : () => fetch("http://localhost:5000/classes")
+          element : <Classes></Classes>
         }
       ]
     },
@@ -67,6 +67,10 @@ const router = createBrowserRouter([
           element : <ManageClasses></ManageClasses>
         }
       ]
+    },
+    {
+     path : "*",
+     element : <ErrorPage></ErrorPage>
     }
   ]);
 

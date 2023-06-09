@@ -1,20 +1,41 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-    const { user , logOut } = useAuth();
-    const handleLogOut =() =>{
-        logOut()
-        .then(()=>{})
-        .catch((err)=>{console.log(err.message)})
+    const { user, logOut } = useAuth();
+    // console.log(user);
+
+    const handleLogOut = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Log out !'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logOut()
+                    .then(() => {
+                        Swal.fire(
+                            'Done!',
+                            'Your Account Logout Successfully.',
+                            'success'
+                        )
+                     })
+                    .catch((err) => { console.log(err.message) })
+            }
+        })
     }
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
-       { user ? <li><button onClick={handleLogOut}>Logout</button></li> :
-        <li><Link to="/login">Login</Link></li>}
+        {user ? <li><button onClick={handleLogOut}>Logout</button></li> :
+            <li><Link to="/login">Login</Link></li>}
     </>
     return (
         <div className="navbar bg-[#572db9] text-white font-bold">
@@ -31,11 +52,11 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                   {navItem}
+                    {navItem}
                 </ul>
             </div>
             <div className="navbar-end">
-                 <img className="w-14 h-14 rounded-[50%]" title={user?.displayName} src={user?.photoURL} alt="" />
+                <img className="w-14 h-14 rounded-[50%]" title={user?.displayName} src={user?.photoURL} alt="" />
             </div>
         </div>
     );
