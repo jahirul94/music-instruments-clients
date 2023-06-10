@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import { FaTrash } from 'react-icons/fa';
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import useCart from "../../../hooks/useCart";
 
 const StudentDashboard = () => {
-    const [reload, setReload] = useState(false)
-    const { user } = useAuth();
-    const [cartItems, setCartItems] = useState([])
-    const url = `http://localhost:5000/studentClasses?email=${user?.email}`
-    useEffect(() => {
-        fetch(url, {
-            method: "GET"
-        })
-            .then(res => res.json())
-            .then(data => setCartItems(data))
-    }, [url, reload])
+    const [cartItems , reload , setReload] = useCart();
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/studentClasses/${id}`, {
             method: "DELETE"
@@ -39,7 +29,7 @@ const StudentDashboard = () => {
         <div className="mx-10 mt-14 mb-6">
             <div className="flex justify-evenly items-center">
                 <p className="text-xl font-bold">Total Price : ${totalPrice} </p>
-                <button className="btn btn-outline btn-sm">Pay</button>
+                <Link to="/dashboard/payment"><button className="btn btn-outline btn-sm">Pay</button></Link>
             </div>
             <div className="divider"></div>
             <div className="overflow-x-auto">
