@@ -13,6 +13,8 @@ import InstructorClasses from "../Pages/DashBoard/InstructorDashboard/Instructor
 import ManageUsers from "../Pages/DashBoard/AdminDashboard/ManageUsers";
 import ManageClasses from "../Pages/DashBoard/AdminDashboard/ManageClasses";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
     {
@@ -52,19 +54,19 @@ const router = createBrowserRouter([
         },
         {
           path : "addAClass",
-          element : <AddAClass></AddAClass>
+          element : <InstructorRoute><AddAClass></AddAClass></InstructorRoute>
         },
         {
           path : 'instructorClasses',
-          element : <InstructorClasses></InstructorClasses>
+          element : <InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
         },
         {
           path : 'manageUsers',
-          element : <ManageUsers></ManageUsers>
+          element : <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path :'manageClasses',
-          element : <ManageClasses></ManageClasses>
+          element : <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         }
       ]
     },
