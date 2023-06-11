@@ -27,7 +27,7 @@ const DashBoard = () => {
                             <li><Link className="text-lg" to="/dashboard/instructorClasses"><FaBookReader></FaBookReader> My Classes </Link></li></> ||
 
                         <><li><Link className="text-lg" to="/dashboard/studentdashboard"><FaBookmark></FaBookmark> My Selected Classes</Link></li>
-                            <li><Link className="text-lg"><FaArrowRight></FaArrowRight> My Enrolled Classes</Link></li></>
+                            <li><Link className="text-lg" to="/dashboard/enrollClass"><FaArrowRight></FaArrowRight> My Enrolled Classes</Link></li></>
                     }
                     <div className="divider"></div>
                     <li><Link className="text-lg" to="/"><FaHome></FaHome> Home</Link></li>
