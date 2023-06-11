@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructors from "../../../hooks/useInstructors";
-import { FaAd, FaArrowRight, FaBookOpen, FaBookReader, FaBookmark, FaHome, FaUserFriends, FaUsers } from "react-icons/fa";
+import { FaAd, FaArrowRight, FaBookOpen, FaBookReader, FaBookmark, FaHistory, FaHome, FaUserFriends, FaUsers } from "react-icons/fa";
 
 const DashBoard = () => {
     const [isAdmin] = useAdmin();
@@ -27,7 +27,7 @@ const DashBoard = () => {
                             <li><Link className="text-lg" to="/dashboard/instructorClasses"><FaBookReader></FaBookReader> My Classes </Link></li></> ||
 
                         <><li><Link className="text-lg" to="/dashboard/studentdashboard"><FaBookmark></FaBookmark> My Selected Classes</Link></li>
-                            <li><Link className="text-lg" to="/dashboard/enrollClass"><FaArrowRight></FaArrowRight> My Enrolled Classes</Link></li></>
+                            <li><Link className="text-lg" to="/dashboard/enrollClass"><FaArrowRight></FaArrowRight> My Enrolled Classes</Link></li><li><Link className="text-lg" to="/dashboard/paymentHistory"><FaHistory></FaHistory>Payment History</Link></li></>
                     }
                     <div className="divider"></div>
                     <li><Link className="text-lg" to="/"><FaHome></FaHome> Home</Link></li>

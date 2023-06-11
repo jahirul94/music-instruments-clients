@@ -76,8 +76,8 @@ const CheckOut = ({ price , cartItems }) => {
                 date : new Date(),
                 cartId : cartItems.map(i => i._id),
                 quantity : cartItems.length ,
-                itemId : cartItems.map(i => i.itemId)
-
+                itemId : cartItems.map(i => i.itemId),
+                itemName : cartItems.map(n => n.className)
             }
             axiosSecure.post("/savePaymentInfo" , savedDoc )
             .then(data => {

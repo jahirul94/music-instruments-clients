@@ -24,7 +24,7 @@ const NavBar = () => {
                             'Your Account Logout Successfully.',
                             'success'
                         )
-                     })
+                    })
                     .catch((err) => { console.log(err.message) })
             }
         })
@@ -33,12 +33,12 @@ const NavBar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
-        {user ? <li><button onClick={handleLogOut}>Logout</button></li> :
+        { user ? <> <li><Link to="/dashboard">Dashboard</Link></li>
+        <li><button onClick={handleLogOut}>Logout</button></li></> :
             <li><Link to="/login">Login</Link></li>}
     </>
     return (
-        <div className="navbar bg-[#572db9] text-white font-bold">
+        <div className="navbar bg-[#572db9] text-white font-bold pe-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,7 +56,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <img className="w-14 h-14 rounded-[50%]" title={user?.displayName} src={user?.photoURL} alt="" />
+               { user &&  <img className="w-14 h-14 rounded-[50%]" title={user?.displayName} src={user?.photoURL} alt="" />}
             </div>
         </div>
     );
