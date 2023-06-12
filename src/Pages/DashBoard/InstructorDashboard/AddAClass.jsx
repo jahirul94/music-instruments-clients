@@ -3,7 +3,6 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
-
 const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
 const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`
 
@@ -24,8 +23,7 @@ const AddAClass = () => {
                 if (imageResponse.success) {
                     const imgURL = imageResponse.data.display_url;
                     const { className , price, instructorEmail , instructorName , availableSeats } = data;
-                    const newClass = { className , price: parseFloat(price), instructorEmail , instructorName , image: imgURL , availableSeats , status : "pending" }
-                    console.log(newClass);
+                    const newClass = { className , price: parseFloat(price), instructorEmail , instructorName , image: imgURL , availableSeats , status : "pending" , sell : 0 }
                     axiosSecure.post("/instructors", newClass)
                         .then(data => {
                             if (data.data.insertedId) {

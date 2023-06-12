@@ -4,7 +4,6 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import Instructor from "../Pages/Instructor/Instructor";
-import Classes from "../Pages/Classes/Classes";
 import DashBoard from "../Pages/DashBoard/DashBoard/DashBoard";
 import StudentDashboard from "../Pages/DashBoard/StudentDashboard/StudentDashboard";
 import PrivateRoutes from "./PrivateRoutes";
@@ -18,6 +17,9 @@ import InstructorRoute from "./InstructorRoute";
 import Payment from "../Pages/payment/Payment";
 import EnrollClass from "../Pages/DashBoard/StudentDashboard/EnrollClass";
 import PaymentHistory from "../Pages/DashBoard/StudentDashboard/PaymentHistory";
+import StudentRoute from "./StudentRoute";
+import AllClasses from "../Pages/Classes/Classes";
+import Classes from "../Pages/Classes/Classes";
 
 const router = createBrowserRouter([
     {
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
       children : [
         {
           path : "studentdashboard",
-          element : <StudentDashboard></StudentDashboard>
+          element : <StudentRoute><StudentDashboard></StudentDashboard></StudentRoute>
         },
         {
           path : "addAClass",
@@ -73,15 +75,16 @@ const router = createBrowserRouter([
         },
         {
           path :'payment',
-          element : <Payment></Payment>
+          element : <StudentRoute><Payment></Payment></StudentRoute>,
+          loader : () => fetch("http://localhost:5000/displayclasses")
         },
         {
           path :"enrollClass",
-          element : <EnrollClass></EnrollClass>
+          element : <StudentRoute><EnrollClass></EnrollClass></StudentRoute>
         },
         {
           path : "paymentHistory",
-          element :<PaymentHistory></PaymentHistory>
+          element :<StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
         }
       ]
     },

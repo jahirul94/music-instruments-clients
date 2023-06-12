@@ -56,7 +56,7 @@ const InstructorClasses = () => {
                                 <td>{sc.className}</td>
                                 <td className="text-right">${sc.price}</td>
                                 <td className="text-primary">{sc.status}</td>
-                                <td>0</td>
+                                <td>{sc.sell}</td>
                                 <td><button onClick={() => handleShowFeedback(sc._id)} className="underline"><span onClick={() => window.my_modal_5.showModal()}>feedback</span></button></td>
                                 <td><FaEdit className="text-xl"></FaEdit></td>
                             </tr>)

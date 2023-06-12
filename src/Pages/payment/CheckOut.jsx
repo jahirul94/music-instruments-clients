@@ -4,7 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import './CheckOut.css'
 
-const CheckOut = ({ price , cartItems }) => {
+const CheckOut = ({ price , cartItem }) => {
+    // console.log("from checkout" , cartItem);
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -62,25 +63,35 @@ const CheckOut = ({ price , cartItems }) => {
         if (confirmError) {
             setCardError(confirmError.message)
         }
-
+ 
         setProcessing(false)
         if(paymentIntent.status === "succeeded"){
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             setTransactionId(paymentIntent.id);
             const savedDoc = {
                 email : user?.email ,
                 transactionId : paymentIntent.id ,
-                price ,
-                image : cartItems.map(i => i.image),
+                price :cartItem.price ,
+                image : cartItem.image,
                 status : "pending",
                 date : new Date(),
-                cartId : cartItems.map(i => i._id),
-                quantity : cartItems.length ,
-                itemId : cartItems.map(i => i.itemId),
-                itemName : cartItems.map(n => n.className)
+                quantity : 1 ,
+                itemId : cartItem._id,
+                itemName : cartItem.className,
+                instructorName : cartItem.instructorName,
+                instructorEmail : cartItem.instructorEmail,
+
             }
+            const savedInstructors = {
+                instructorEmail : cartItem.instructorEmail,
+            }
+
             axiosSecure.post("/savePaymentInfo" , savedDoc )
             .then(data => {
+                // console.log(data);
+            })
+            axiosSecure.post('/updateInstructors' , savedInstructors)
+            .then(data =>{
                 // console.log(data);
             })
         }

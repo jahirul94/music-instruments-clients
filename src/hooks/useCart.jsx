@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useCart = () => {
     const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const [reload, setReload] = useState(false)
     const [cartItems, setCartItems] = useState([])
     const url = `http://localhost:5000/studentClasses?email=${user?.email}`
     useEffect(() => {
-        fetch(url, {
-            method: "GET"
-        })
-            .then(res => res.json())
-            .then(data => setCartItems(data))
-    }, [url, reload])
+           axiosSecure.get(url)
+            .then(data => {
+                setCartItems(data.data)
+            })
+    }, [url, reload , axiosSecure])
     return [cartItems, reload , setReload]
 };
 

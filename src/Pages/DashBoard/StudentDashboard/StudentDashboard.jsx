@@ -2,16 +2,16 @@ import { FaTrash } from 'react-icons/fa';
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+
 
 const StudentDashboard = () => {
-    const [cartItems , reload , setReload] = useCart();
+    const [axiosSecure] = useAxiosSecure();
+    const [cartItems, reload, setReload] = useCart();
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/studentClasses/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
+           axiosSecure.delete(`/studentClasses/${id}`)
             .then(data => {
-                if (data.deletedCount > 0) {
+                if (data.data.deletedCount > 0) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -23,13 +23,14 @@ const StudentDashboard = () => {
                 }
             })
     }
+
     //   total price function 
-    const totalPrice = cartItems.reduce((sum, item) => item.price + sum, 0)
+    const totalPrice = cartItems?.reduce((sum, item) => item.price + sum, 0)
     return (
         <div className="mx-10 mt-14 mb-6">
             <div className="flex justify-evenly items-center">
+                <p className="text-xl font-bold">Total items : {cartItems.length} </p>
                 <p className="text-xl font-bold">Total Price : ${totalPrice} </p>
-                <Link to="/dashboard/payment"><button className="btn btn-outline btn-sm">Pay</button></Link>
             </div>
             <div className="divider"></div>
             <div className="overflow-x-auto">
@@ -60,7 +61,9 @@ const StudentDashboard = () => {
                                 <td>{cartItem.className}</td>
                                 <td>{cartItem.instructorName}</td>
                                 <td className="text-right">${cartItem.price}</td>
-                                <td><button onClick={() => handleDelete(cartItem._id)} className="btn btn-outline"><FaTrash></FaTrash></button></td>
+                                <td className='flex space-x-4'><button onClick={() => handleDelete(cartItem._id)} className="btn btn-outline btn-sm"><FaTrash></FaTrash></button>
+                                    <Link state={{id:cartItem.itemId}} to="/dashboard/payment"><button className="btn btn-outline btn-sm">Pay</button></Link>
+                                </td>
                             </tr>)
                         }
 
