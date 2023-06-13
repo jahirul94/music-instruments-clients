@@ -39,3 +39,39 @@
     object-fit: cover;
   }
   
+
+
+
+  /* custom css */
+
+  .banner-title{
+    text-align: start;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .banner-text{
+    text-align: start;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .slider-div {
+    height: 650px;
+  }
+  @media only screen and (max-width: 600px) {
+    .banner-title{
+      text-align: start;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 50px 0px 10px 0px;
+    }
+  
+    .banner-text{
+      text-align: start;
+      font-size: 12px;
+      font-weight: 400;
+    } 
+    .slider-div {
+      height: 350px;
+    }
+  }

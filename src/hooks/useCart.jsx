@@ -7,7 +7,7 @@ const useCart = () => {
     const [axiosSecure] = useAxiosSecure();
     const [reload, setReload] = useState(false)
     const [cartItems, setCartItems] = useState([])
-    const url = `http://localhost:5000/studentClasses?email=${user?.email}`
+    const url = `https://music-instrument-server-navy.vercel.app/studentClasses?email=${user?.email}`
     useEffect(() => {
            axiosSecure.get(url)
             .then(data => {

@@ -44,7 +44,7 @@ const AuthProviders = ({children}) => {
             setUser(user);
             setLoading(false)
             if (user) {
-                axios.post('http://localhost:5000/jwt', { email: user.email })
+                axios.post('https://music-instrument-server-navy.vercel.app/jwt', { email: user.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
                         setLoading(false);

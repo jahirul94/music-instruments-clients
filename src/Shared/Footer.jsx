@@ -1,21 +1,24 @@
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-[#572db9] text-white">
+        <div className=" bg-[#6028e0]">
+            <footer className="footer p-10 text-white">
+                <div>
+                    <img className="w-36 rounded-2xl" src="https://previews.123rf.com/images/leszekglasner/leszekglasner1411/leszekglasner141100036/33729380-rock-music-instruments-icons-set-vector-illustration.jpg" alt="" />
+                    <h4 className="text-xl mt-2">Rocking music instrument </h4>
+                </div>
                 <div>
                     <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <a className="link link-hover">Online Classes</a>
+                    <a className="link link-hover">Offline Classes</a>
+                    <a className="link link-hover">Best Instructors Class</a>
+                    <a className="link link-hover">Exam in Every week</a>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
                 </div>
                 <div>
                     <span className="footer-title">Social</span>
@@ -26,9 +29,9 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <footer className="footer footer-center p-4bg-[#572db9] text-white">
+            <footer className="footer footer-center p-4 text-white">
                 <div>
-                    <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © 2023 - All right reserved by Rocking Music Instrument</p>
                 </div>
             </footer>
         </div>

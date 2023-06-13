@@ -2,9 +2,11 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useClasses from "../../../hooks/useClasses";
 import { useRef, useState } from "react";
+import usePageTItle from "../../../hooks/usePageTItle";
 
 
 const ManageClasses = () => {
+    usePageTItle("Manage Classes")
     const [classes, refetch] = useClasses();
     const ref = useRef();
     const [updateId, setUpdateId] = useState(null)

@@ -2,9 +2,11 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-// import './CheckOut.css'
+import usePageTItle from "../../hooks/usePageTItle";
+import './CheckOut.css'
 
-const CheckOut = ({ price , cartItem }) => {
+const CheckOut = ({ price, cartItem }) => {
+    usePageTItle("Checkout")
     // console.log("from checkout" , cartItem);
     const stripe = useStripe();
     const elements = useElements();
@@ -63,42 +65,42 @@ const CheckOut = ({ price , cartItem }) => {
         if (confirmError) {
             setCardError(confirmError.message)
         }
- 
+
         setProcessing(false)
-        if(paymentIntent.status === "succeeded"){
+        if (paymentIntent.status === "succeeded") {
             // console.log('payment intent', paymentIntent)
             setTransactionId(paymentIntent.id);
             const savedDoc = {
-                email : user?.email ,
-                transactionId : paymentIntent.id ,
-                price :cartItem.price ,
-                image : cartItem.image,
-                status : "pending",
-                date : new Date(),
-                quantity : 1 ,
-                itemId : cartItem._id,
-                itemName : cartItem.className,
-                instructorName : cartItem.instructorName,
-                instructorEmail : cartItem.instructorEmail,
+                email: user?.email,
+                transactionId: paymentIntent.id,
+                price: cartItem.price,
+                image: cartItem.image,
+                status: "pending",
+                date: new Date(),
+                quantity: 1,
+                itemId: cartItem._id,
+                itemName: cartItem.className,
+                instructorName: cartItem.instructorName,
+                instructorEmail: cartItem.instructorEmail,
 
             }
             const savedInstructors = {
-                instructorEmail : cartItem.instructorEmail,
+                instructorEmail: cartItem.instructorEmail,
             }
 
-            axiosSecure.post("/savePaymentInfo" , savedDoc )
-            .then(data => {
-                // console.log(data);
-            })
-            axiosSecure.post('/updateInstructors' , savedInstructors)
-            .then(data =>{
-                // console.log(data);
-            })
+            axiosSecure.post("/savePaymentInfo", savedDoc)
+                .then(data => {
+                    // console.log(data);
+                })
+            axiosSecure.post('/updateInstructors', savedInstructors)
+                .then(data => {
+                    // console.log(data);
+                })
         }
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="m-20" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -115,7 +117,7 @@ const CheckOut = ({ price , cartItem }) => {
                         },
                     }}
                 />
-                <button className='"btn btn-primary btn-sm rounded-lg mt-4' type="submit" disabled={!stripe || !clientSecret || processing }>
+                <button className='"btn btn-primary btn-sm rounded-lg mt-4' type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

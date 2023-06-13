@@ -3,9 +3,11 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import usePageTItle from '../../../hooks/usePageTItle';
 
 
 const StudentDashboard = () => {
+    usePageTItle("My Carts")
     const [axiosSecure] = useAxiosSecure();
     const [cartItems, reload, setReload] = useCart();
     const handleDelete = (id) => {

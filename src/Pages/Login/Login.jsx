@@ -4,8 +4,10 @@ import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import usePageTItle from "../../hooks/usePageTItle";
 
 const Login = () => {
+    usePageTItle("Login")
     const [ error , setError] = useState("")
     const {signIn} = useAuth();
     const navigate = useNavigate();
@@ -29,26 +31,26 @@ const Login = () => {
     };
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-[#572db9]">
             <div className="hero-content flex-col lg:flex-row">
-                <div className="text-center lg:text-left lg:w-1/3">
+                <div className="text-center lg:text-left lg:w-1/3 text-white">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#6444af]">
                     <form  onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-white">Email</span>
                             </label>
                             <input type="email" {...register("email")} placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-white">Password</span>
                             </label>
                             <input type="password" {...register("password")} placeholder="password" className="input input-bordered" />
-                            <label className="label">
+                            <label className="label text-white">
                                 <p> New at here ? <Link to="/register">Sign Up </Link></p>
                             </label>
                             <p className="text-red-600">{error}</p>

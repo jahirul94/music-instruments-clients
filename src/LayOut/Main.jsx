@@ -4,9 +4,9 @@ import Footer from "../Shared/Footer";
 
 const Main = () => {
     return (
-        <div className="px-10 bg-[#572db9]">
+        <div className="bg-[#572db9]">
             <NavBar></NavBar>
-              <Outlet></Outlet>
+            <div className="px-10"><Outlet></Outlet></div>
             <Footer></Footer>
         </div>
     );

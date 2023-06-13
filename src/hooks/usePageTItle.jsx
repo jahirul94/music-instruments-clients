@@ -1,6 +1,7 @@
-const usePageTItle = ({title}) => {
-    window.title = "Music Instrument" | title;
 
+
+const usePageTItle = (title) => {
+    document.title = ` Music Instrument | ${title}`
 };
 
 export default usePageTItle;

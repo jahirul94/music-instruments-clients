@@ -1,7 +1,9 @@
 import useEnrolledClass from "../../../hooks/useEnrolledClass";
+import usePageTItle from "../../../hooks/usePageTItle";
 
 
 const EnrollClass = () => {
+    usePageTItle("My Enrolled Class")
     const [paymentDetails] = useEnrolledClass();
     return (
         <div className="grid gap-4 px-6 py-10 sm:grid-cols-1 md:grid-cols-3">

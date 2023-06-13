@@ -2,8 +2,10 @@ import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructors from "../../../hooks/useInstructors";
 import { FaAd, FaArrowRight, FaBookOpen, FaBookReader, FaBookmark, FaHistory, FaHome, FaUserFriends, FaUsers } from "react-icons/fa";
+import usePageTItle from "../../../hooks/usePageTItle";
 
 const DashBoard = () => {
+    usePageTItle("Dashboard")
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructors();
 
@@ -19,6 +21,7 @@ const DashBoard = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-[#572db9] text-white pt-20">
+                    <Link className="text-lg flex items-center ps-4" to="/dashboard"><FaHome className="me-2"></FaHome>Home</Link>
                     {
                         isAdmin && <><li><Link className="text-lg" to="/dashboard/manageClasses"><FaBookReader></FaBookReader> Manage Classes</Link></li>
                             <li><Link className="text-lg" to="/dashboard/manageUsers"><FaUserFriends></FaUserFriends> Manage Users</Link></li></> ||

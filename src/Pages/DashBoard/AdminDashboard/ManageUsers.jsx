@@ -2,9 +2,11 @@
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useUser from "../../../hooks/useUser";
+import usePageTItle from "../../../hooks/usePageTItle";
 
 
 const ManageUsers = () => {
+    usePageTItle("Manage Users")
     const [axiosSecure] = useAxiosSecure();
     const [data , refetch ] = useUser(); 
     const handleAction = (action , user ) =>{

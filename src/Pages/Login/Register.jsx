@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import usePageTItle from "../../hooks/usePageTItle";
 
 const Register = () => {
+    usePageTItle("Sign up")
     const { createUser, updateUserProfile } = useAuth();
     const [error, setError] = useState("")
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
                         const saveUser = { name: data.name , email: data.email , role : "regular" , image : data.photo}
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://music-instrument-server-navy.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -55,35 +57,35 @@ const Register = () => {
     };
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-[#513397]">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left lg:w-1/3">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#6444af]">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-semibold">Name</span>
+                                <span className="text-white font-semibold">Name</span>
                             </label>
                             <input type="text" {...register("name")} placeholder="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-semibold">Photo URL</span>
+                                <span className="text-white font-semibold">Photo URL</span>
                             </label>
                             <input type="text" {...register("photo")} placeholder="Photo URL" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-semibold">Email</span>
+                                <span className="text-white font-semibold">Email</span>
                             </label>
                             <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-semibold">Password</span>
+                                <span className="text-white font-semibold">Password</span>
                             </label>
                             <input type="password" {...register("password", { minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/ })} placeholder="password" className="input input-bordered" required />
                             {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
@@ -92,12 +94,12 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text font-semibold">Confirm Password</span>
+                                <span className="text-white font-semibold">Confirm Password</span>
                             </label>
                             <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" />
                         </div>
                         <p className="text-red-600">{error}</p>
-                        <p> Already have an Account ? <Link to="/login">Login</Link></p>
+                        <p className="text-white"> Already have an Account ? <Link to="/login">Login</Link></p>
                         <input className="btn btn-primary" type="submit" value="Sign up" />
                     </form>
                     <SocialLogin></SocialLogin>

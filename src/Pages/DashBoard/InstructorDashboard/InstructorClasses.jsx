@@ -4,9 +4,11 @@ import useAuth from "../../../hooks/useAuth";
 import { FaEdit } from 'react-icons/fa';
 import useFeedback from "../../../hooks/useFeedback";
 import { useState } from "react";
+import usePageTItle from "../../../hooks/usePageTItle";
 
 
 const InstructorClasses = () => {
+    usePageTItle("My Classes")
     const [feedbacks] = useFeedback();
     const [feedback, setFeedback] = useState("");
     const [axiosSecure] = useAxiosSecure();

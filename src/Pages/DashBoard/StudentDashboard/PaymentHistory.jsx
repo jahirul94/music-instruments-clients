@@ -1,7 +1,9 @@
 import useEnrolledClass from "../../../hooks/useEnrolledClass";
 import moment from 'moment';
+import usePageTItle from "../../../hooks/usePageTItle";
 
 const PaymentHistory = () => { 
+    usePageTItle("Payment History")
     const [paymentDetails] = useEnrolledClass();
     return (
         <div className="overflow-x-auto my-8 mx-4">

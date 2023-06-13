@@ -18,7 +18,6 @@ import Payment from "../Pages/payment/Payment";
 import EnrollClass from "../Pages/DashBoard/StudentDashboard/EnrollClass";
 import PaymentHistory from "../Pages/DashBoard/StudentDashboard/PaymentHistory";
 import StudentRoute from "./StudentRoute";
-import AllClasses from "../Pages/Classes/Classes";
 import Classes from "../Pages/Classes/Classes";
 
 const router = createBrowserRouter([
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
         {
           path :'/instructors',
           element : <Instructor></Instructor>,
-          loader : () => fetch('http://localhost:5000/instructors')
+          loader : () => fetch('https://music-instrument-server-navy.vercel.app/instructors')
         },
         {
           path : "/classes",
@@ -76,7 +75,7 @@ const router = createBrowserRouter([
         {
           path :'payment',
           element : <StudentRoute><Payment></Payment></StudentRoute>,
-          loader : () => fetch("http://localhost:5000/displayclasses")
+          loader : () => fetch("https://music-instrument-server-navy.vercel.app/displayclasses")
         },
         {
           path :"enrollClass",
