@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
+    const location = useLocation();
     // toggle start
     const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
 
@@ -49,12 +50,12 @@ const NavBar = () => {
         })
     }
     const navItem = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to='/instructors'>Instructors</Link></li>
-        <li><Link to="/classes">Classes</Link></li>
-        {user ? <> <li><Link to="/dashboard">Dashboard</Link></li>
+        <li><Link className={location.pathname == '/' ? 'underline font-semibold' : 'font-semibold'} to="/">Home</Link></li>
+        <li><Link className={location.pathname == '/instructors' ? 'underline font-semibold' : 'font-semibold'} to='/instructors'>Instructors</Link></li>
+        <li><Link className={location.pathname == '/classes' ? 'underline font-semibold' : 'font-semibold'} to="/classes">Classes</Link></li>
+        {user ? <> <li><Link className={location.pathname == '/dashboard' ? 'underline font-semibold' : 'font-semibold'} to="/dashboard">Dashboard</Link></li>
             <li><button onClick={handleLogOut}>Logout</button></li></> :
-            <li><Link to="/login">Login</Link></li>}
+            <li><Link className={location.pathname == '/login' ? 'underline font-semibold' : 'font-semibold'} to="/login">Login</Link></li>}
     </>
     return (
         <div className="navbar bg-[#6028e0]  text-white font-bold px-8">
