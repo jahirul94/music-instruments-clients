@@ -36,7 +36,7 @@ const Register = () => {
                                 if (data.insertedId) {
                                     reset();
                                     Swal.fire({
-                                        position: 'top-end',
+                                        position: 'center',
                                         icon: 'success',
                                         title: 'User created successfully.',
                                         showConfirmButton: false,
@@ -59,9 +59,9 @@ const Register = () => {
     return (
         <div className="hero min-h-screen bg-[#513397]">
             <div className="hero-content flex-col lg:flex-row">
-                <div className="text-center lg:text-left lg:w-1/3">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <div className="text-center text-white lg:text-left lg:w-1/3">
+                    <h1 className="text-5xl font-bold">Sign Up now!</h1>
+                    <p className="py-6">Please provide us with some basic information so we can personalize your experience. You'll be asked to enter your name, email address,picture url  and a unique password that ensures the privacy and security of your account. We value your privacy and assure you that your information will be handled with utmost care, following the strictest data protection standards.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#6444af]">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -69,13 +69,13 @@ const Register = () => {
                             <label className="label">
                                 <span className="text-white font-semibold">Name</span>
                             </label>
-                            <input type="text" {...register("name")} placeholder="name" className="input input-bordered" />
+                            <input type="text" {...register("name")} placeholder="name" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="text-white font-semibold">Photo URL</span>
                             </label>
-                            <input type="text" {...register("photo")} placeholder="Photo URL" className="input input-bordered" />
+                            <input type="text" {...register("photo")} placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -96,7 +96,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="text-white font-semibold">Confirm Password</span>
                             </label>
-                            <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" />
+                            <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" required />
                         </div>
                         <p className="text-red-600">{error}</p>
                         <p className="text-white"> Already have an Account ? <Link to="/login">Login</Link></p>

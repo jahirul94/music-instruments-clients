@@ -35,7 +35,7 @@ const Login = () => {
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left lg:w-1/3 text-white">
                     <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6">To securely access your account, please enter your registered email address and password in the designated fields. We take your privacy seriously and employ industry-standard encryption protocols to protect your sensitive information. Rest assured that your login credentials are safe with us.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#6444af]">
                     <form  onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -43,13 +43,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text text-white">Email</span>
                             </label>
-                            <input type="email" {...register("email")} placeholder="email" className="input input-bordered" />
+                            <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white">Password</span>
                             </label>
-                            <input type="password" {...register("password")} placeholder="password" className="input input-bordered" />
+                            <input type="password" {...register("password")} placeholder="password" className="input input-bordered" required />
                             <label className="label text-white">
                                 <p> New at here ? <Link to="/register">Sign Up </Link></p>
                             </label>
