@@ -27,7 +27,7 @@ const PaymentHistory = () => {
                               <img className="w-16 h-16 rounded-2xl" src={p.image} />
                             </td>
                             <td>
-                                <p>Class Name : {p.className}</p>
+                                <p>{p.itemName}</p>
                             </td>
                             <td className="text-center">
                                {p.quantity} 

@@ -11,7 +11,7 @@ const EnrollClass = () => {
                 paymentDetails?.map(pd => <div key={pd._id} className="card bg-base-100 shadow-xl">
                     <figure><img className="w-full h-80" src={pd.image} alt="class image" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title">Class Name : {pd.className}</h2>
+                        <h2 className="card-title">Class Name : {pd.itemName}</h2>
                         <p>Price : ${pd.price}</p>
                         <p>Instructor  : {pd.instructorName}</p>
                         <p>instructorEmail : {pd.instructorEmail}</p>
