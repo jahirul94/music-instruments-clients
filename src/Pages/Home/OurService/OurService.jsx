@@ -7,7 +7,7 @@ const OurService = () => {
     return (
         <div>
             <SectionHeader heading="Our Services" subHeading="Explore Our Services "></SectionHeader>
-            <div className={`${theme === "light" ? "text-black" : "text-white"} grid sm:grid-cols-1 lg:grid-cols-3 text-center pb-6 w-full`}>
+            <div className={`${theme === "light" ? "text-black" : "text-slate-300"} grid sm:grid-cols-1 lg:grid-cols-3 text-center pb-6 w-full`}>
                 <div className="me-4 mb-8 p-2 border border-slate-300 rounded-lg">
                     <h3 className="text-xl font-bold text-center mb-2 mt-6">Beginner-Friendly Approach</h3>
                     <p className="mb-4"><small> If you are a beginner and have never played an instrument before, don not worry! Our beginner-friendly approach will guide you step-by-step, starting from the basics of music theory, instrument technique, and gradually building your skills. We make sure that you have a solid foundation to build upon.</small></p>

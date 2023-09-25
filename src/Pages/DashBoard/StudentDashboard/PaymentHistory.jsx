@@ -11,7 +11,7 @@ const PaymentHistory = () => {
     return (
         <div className="overflow-x-auto my-8 mx-4">
             <table className="table">
-                <thead className={theme === "light" ? "text-black" : "text-white"}>
+                <thead className={theme === "light" ? "text-black" : "text-slate-300"}>
                     <tr>
                         <th className="text-lg">#</th>
                         <th className="text-lg">Class Image</th>

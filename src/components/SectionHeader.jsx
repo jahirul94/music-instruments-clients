@@ -6,20 +6,20 @@ const SectionHeader = ({ heading, subHeading }) => {
 
     return (
         <div className="mt-24 mb-6">
-            <div className={theme === "light" ? "text-center py-4 font-bold" : "text-center py-4 font-bold text-white"}>
+            <div className={theme === "light" ? "text-center py-4 font-bold" : "text-center py-4 font-bold text-slate-300"}>
                 <TypeAnimation
                     sequence={[
                         `${heading}`,
-                        1000,
-                        `${subHeading}`,
-                        1000,
+                        2000,
+                        `Explore our website`,
+                        2000,
                         `${heading}`,
-                        1000,
-                        `${subHeading}`,
-                        1000,
+                        2000,
+                        `Explore our website`,
+                        2000,
                     ]}
                     speed={50}
-                    style={{ fontSize: '4em' }}
+                    style={{ fontSize: '3em' }}
                     repeat={Infinity}
                 />
                 {/* <h2 className="text-4xl mb-2">{heading}</h2> */}

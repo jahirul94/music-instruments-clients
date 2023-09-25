@@ -40,7 +40,7 @@ const StudentDashboard = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr className={theme === "light" ? "text-black" : "text-white"}>
+                        <tr className={theme === "light" ? "text-black" : "text-slate-300"}>
                             <th className="text-lg font-bold">#</th>
                             <th className="text-lg font-bold">Picture</th>
                             <th className="text-lg font-bold">Class Name</th>
@@ -67,10 +67,10 @@ const StudentDashboard = () => {
                                 <td className="text-right">${cartItem.price}</td>
                                 <td className='flex space-x-4 items-center'>
 
-                                    <button onClick={() => handleDelete(cartItem._id)} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline btn-sm`}><FaTrash></FaTrash></button>
+                                    <button onClick={() => handleDelete(cartItem._id)} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline btn-sm`}><FaTrash></FaTrash></button>
 
                                     <Link state={{ id: cartItem.itemId }} to="/dashboard/payment">
-                                        <button className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline btn-sm`}>Pay</button>
+                                        <button className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline btn-sm`}>Pay</button>
                                     </Link>
                                 </td>
                             </tr>)

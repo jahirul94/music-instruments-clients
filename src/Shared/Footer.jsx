@@ -4,7 +4,7 @@ const Footer = () => {
     const [theme] = useTheme();
 
     return (
-        <div className={`${theme === "light" ? "bg-base-300" : "text-white bg-base-300"}`}>
+        <div className={`${theme === "light" ? "bg-base-300" : "text-slate-300 bg-base-300"}`}>
             <footer className="footer p-10">
                 <div>
                     <img className="w-36 rounded-2xl" src="https://previews.123rf.com/images/leszekglasner/leszekglasner1411/leszekglasner141100036/33729380-rock-music-instruments-icons-set-vector-illustration.jpg" alt="" />

@@ -5,11 +5,15 @@ import { FaEdit } from 'react-icons/fa';
 import useFeedback from "../../../hooks/useFeedback";
 import { useState } from "react";
 import usePageTItle from "../../../hooks/usePageTItle";
+import useTheme from "../../../hooks/useTheme";
 
 
 const InstructorClasses = () => {
+
     usePageTItle("My Classes")
     const [feedbacks] = useFeedback();
+    const [theme] = useTheme();
+
     const [feedback, setFeedback] = useState("");
     const [axiosSecure] = useAxiosSecure();
     const { user } = useAuth();
@@ -27,11 +31,11 @@ const InstructorClasses = () => {
     }
 
     return (
-        <div className="mx-4 my-4">
+        <div className={`${theme === "light" ? "text-black" : "text-slate-300"} mx-4 my-4`}>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className={`${theme === "light" ? "text-black" : "text-slate-300"}`}>
                             <th className="text-lg font-bold">#</th>
                             <th className="text-lg font-bold">Picture</th>
                             <th className="text-lg font-bold">Class Name</th>
@@ -44,7 +48,7 @@ const InstructorClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            data?.map((sc, index) => <tr key={sc._id}>
+                            data?.map((sc, index) => <tr className={`${theme === "light" ? "text-black" : "text-slate-300"}`} key={sc._id}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -59,8 +63,8 @@ const InstructorClasses = () => {
                                 <td className="text-right">${sc.price}</td>
                                 <td className="text-primary">{sc.status}</td>
                                 <td>{sc.sell}</td>
-                                <td><button onClick={() => handleShowFeedback(sc._id)} className="underline"><span onClick={() => window.my_modal_5.showModal()}>feedback</span></button></td>
-                                <td><FaEdit className="text-xl"></FaEdit></td>
+                                <td><button onClick={() => handleShowFeedback(sc._id)} className={`${theme === "light" ? "text-black" : "text-slate-300"} underline`}><span onClick={() => window.my_modal_5.showModal()}>feedback</span></button></td>
+                                <td><FaEdit className={`${theme === "light" ? "text-black" : "text-slate-300"} text-xl`}></FaEdit></td>
                             </tr>)
                         }
                     </tbody>

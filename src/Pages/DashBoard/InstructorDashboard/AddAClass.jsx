@@ -3,15 +3,19 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import usePageTItle from "../../../hooks/usePageTItle";
+import useTheme from "../../../hooks/useTheme";
 
 
 const image_hosting_token = import.meta.env.VITE_IMAGE_TOKEN;
 const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`
 
 const AddAClass = () => {
+
     usePageTItle("Add a Class")
     const { user } = useAuth();
-    const [ axiosSecure ] = useAxiosSecure();
+    const [theme] = useTheme();
+
+    const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const formData = new FormData();
@@ -25,8 +29,8 @@ const AddAClass = () => {
             .then(imageResponse => {
                 if (imageResponse.success) {
                     const imgURL = imageResponse.data.display_url;
-                    const { className , price, instructorEmail , instructorName , availableSeats } = data;
-                    const newClass = { className , price: parseFloat(price), instructorEmail , instructorName , image: imgURL , availableSeats , status : "pending" , sell : 0 }
+                    const { className, price, instructorEmail, instructorName, availableSeats } = data;
+                    const newClass = { className, price: parseFloat(price), instructorEmail, instructorName, image: imgURL, availableSeats, status: "pending", sell: 0 }
                     axiosSecure.post("/instructors", newClass)
                         .then(data => {
                             if (data.data.insertedId) {
@@ -46,7 +50,7 @@ const AddAClass = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen">
+            <div className={`${theme === "light" ? "text-black" : "text-slate-300"} hero min-h-screen`}>
                 <div className="hero-content min-w-full">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className=" grid gap-4 sm:grid-cols-1 md:grid-cols-2">
@@ -88,7 +92,7 @@ const AddAClass = () => {
                             <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Add Class" />
+                            <input className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline`} type="submit" value="Add Class" />
                         </div>
                     </form>
                 </div>

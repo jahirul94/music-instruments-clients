@@ -34,7 +34,7 @@ const Login = () => {
     };
 
     return (
-        <div className={theme === "light" ? "hero min-h-screen" : "hero min-h-screen text-white"}>
+        <div className={theme === "light" ? "hero min-h-screen" : "hero min-h-screen text-slate-300"}>
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left lg:w-1/3">
                     <h1 className="text-5xl font-bold">Login now!</h1>
@@ -44,13 +44,13 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className={theme === "light" ? "label-text" : "label-text text-white"}>Email</span>
+                                <span className={theme === "light" ? "label-text" : "label-text text-slate-300"}>Email</span>
                             </label>
                             <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className={theme === "light" ? "label-text" : "label-text text-white"}>Password</span>
+                                <span className={theme === "light" ? "label-text" : "label-text text-slate-300"}>Password</span>
                             </label>
                             <input type="password" {...register("password")} placeholder="password" className="input input-bordered" required />
                             <label className="label">
@@ -58,7 +58,7 @@ const Login = () => {
                             </label>
                             <p className="text-red-600">{error}</p>
                         </div>
-                        <input className={theme === "light" ? "btn btn-outline" : "btn btn-outline text-white"} type="submit" value="Login" />
+                        <input className={theme === "light" ? "btn btn-outline" : "btn btn-outline text-slate-300"} type="submit" value="Login" />
                     </form>
                     <SocialLogin></SocialLogin>
                 </div>

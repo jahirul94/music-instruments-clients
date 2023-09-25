@@ -13,7 +13,7 @@ const DashBoard = () => {
 
 
     return (
-        <div className={`${theme === "light" ? "text-black" : "text-white"} drawer lg:drawer-open`}>
+        <div className={`${theme === "light" ? "text-black" : "text-slate-300"} drawer lg:drawer-open`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* Page content here */}

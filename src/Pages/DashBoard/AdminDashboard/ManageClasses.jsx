@@ -3,15 +3,19 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useClasses from "../../../hooks/useClasses";
 import { useRef, useState } from "react";
 import usePageTItle from "../../../hooks/usePageTItle";
+import useTheme from "../../../hooks/useTheme";
 
 
 const ManageClasses = () => {
+
     usePageTItle("Manage Classes")
     const [classes, refetch] = useClasses();
+    const [theme] = useTheme();
+
     const ref = useRef();
     const [updateId, setUpdateId] = useState(null)
     const [axiosSecure] = useAxiosSecure();
-    
+
 
     const handleAction = (action, user) => {
         axiosSecure.patch(`/adminAction/${user?._id}?action=${action}`)
@@ -33,7 +37,7 @@ const ManageClasses = () => {
         const feedback = { feedback: ref.current.value, itemId: updateId }
         axiosSecure.post('/feedback', { feedback })
             .then(data => {
-                if(data.data.modifiedCount > 0 || data.data.insertedId){
+                if (data.data.modifiedCount > 0 || data.data.insertedId) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -47,11 +51,11 @@ const ManageClasses = () => {
     }
 
     return (
-        <div className="px-6 my-6">
+        <div className={`${theme === "light" ? "text-black" : "text-slate-300"} px-6 my-6`}>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className={`${theme === "light" ? "text-black" : "text-slate-300"}`}>
                             <th className="text-lg font-bold">#</th>
                             <th className="text-lg font-bold">Class Image</th>
                             <th className="text-lg font-bold">Class name</th>
@@ -84,9 +88,9 @@ const ManageClasses = () => {
                                 <td className="text-primary">{sc.status}</td>
                                 <td>
                                     <div className="flex space-x-2">
-                                        <button onClick={() => handleAction("approve", sc)} disabled={sc.status === "approved" || sc.status === "denied"} className="btn btn-outline btn-sm">Approve</button>
-                                        <button onClick={() => handleAction("deny", sc)} disabled={sc.status === "approved" || sc.status === "denied"} className="btn btn-outline btn-sm">Deny</button>
-                                        <button className="btn btn-outline btn-sm" onClick={() => window.my_modal_3.showModal()} onFocus={() => setUpdateId(sc._id)}>Send Feedback</button>
+                                        <button onClick={() => handleAction("approve", sc)} disabled={sc.status === "approved" || sc.status === "denied"} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline btn-sm`}>Approve</button>
+                                        <button onClick={() => handleAction("deny", sc)} disabled={sc.status === "approved" || sc.status === "denied"} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline btn-sm`}>Deny</button>
+                                        <button className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline btn-sm`} onClick={() => window.my_modal_3.showModal()} onFocus={() => setUpdateId(sc._id)}>Send Feedback</button>
                                     </div>
                                 </td>
                             </tr>)

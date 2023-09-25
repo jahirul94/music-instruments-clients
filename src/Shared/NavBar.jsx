@@ -51,7 +51,7 @@ const NavBar = () => {
             <li><NavLink to="/login">Login</NavLink></li>}
     </>
     return (
-        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" : "navbar bg-base-300 font-bold px-8 py-2 text-white"}`}>
+        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" : "navbar bg-base-300 font-bold px-8 py-2 text-slate-300"}`}>
             <div className="navbar-start">
                 <div className="dropdown z-10">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

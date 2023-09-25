@@ -57,9 +57,9 @@ const Classes = () => {
   }
 
   return (
-    <div className="grid gap-8 px-6 sm:grid-cols-1 lg:grid-cols-3 py-8 mb-14">
+    <div className="min-h-screen grid gap-8 px-6 sm:grid-cols-1 lg:grid-cols-3 py-8 mb-14">
       {
-        classes?.map(singleClass => <div key={singleClass._id} className={`${singleClass.availableSeats == 0 ? "bg-red-700" : `${theme === "light" ? "text-black" : "text-white"}`} card card-compact shadow-xl hover:scale-105 transition-transform duration-500`}>
+        classes?.map(singleClass => <div key={singleClass._id} className={`${singleClass.availableSeats == 0 ? "bg-red-700" : `${theme === "light" ? "text-black" : "text-slate-300"}`} card card-compact shadow-xl hover:scale-105 transition-transform duration-500`}>
 
           <figure><img src={singleClass.image} className="h-96 w-full" alt="class pic" /></figure>
 
@@ -71,9 +71,9 @@ const Classes = () => {
 
             <div className="card-actions justify-end">
               {ids.includes(singleClass._id) ? <button className="btn btn-outline w-full">already enrolled</button> :
-                <button onClick={() => handleEnrollClass(singleClass)} disabled={user?.email && isAdmin || isInstructor || singleClass.availableSeats == 0} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline w-full`}>Enroll</button>}
+                <button onClick={() => handleEnrollClass(singleClass)} disabled={user?.email && isAdmin || isInstructor || singleClass.availableSeats == 0} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline w-full`}>Enroll</button>}
             </div>
-            
+
           </div>
         </div>)
       }

@@ -5,7 +5,7 @@ const InstructorCard = ({ instructor }) => {
     const [theme] = useTheme();
 
     return (
-        <div className={`${theme === "light" ? "text-black" : "text-white"} rounded-lg card card-compact shadow-2xl bg-base-100 hover:scale-105 transition-transform duration-500`}>
+        <div className={`${theme === "light" ? "text-black" : "text-slate-300"} rounded-lg card card-compact shadow-2xl bg-base-100 hover:scale-105 transition-transform duration-500`}>
             <figure><img src={image} className="h-80 w-full" alt="instructor pic" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Instructor Name : {name}</h2>

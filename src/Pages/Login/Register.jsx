@@ -60,7 +60,7 @@ const Register = () => {
     };
 
     return (
-        <div className={`${theme === "light" ? "hero min-h-screen" : "hero min-h-screen text-white"}`}>
+        <div className={`${theme === "light" ? "hero min-h-screen" : "hero min-h-screen text-slate-300"}`}>
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left lg:w-1/3">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
@@ -70,25 +70,25 @@ const Register = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white font-semibold">Name</span>
+                                <span className="text-slate-300 font-semibold">Name</span>
                             </label>
                             <input type="text" {...register("name")} placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white font-semibold">Photo URL</span>
+                                <span className="text-slate-300 font-semibold">Photo URL</span>
                             </label>
                             <input type="text" {...register("photo")} placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white font-semibold">Email</span>
+                                <span className="text-slate-300 font-semibold">Email</span>
                             </label>
                             <input type="email" {...register("email")} placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white font-semibold">Password</span>
+                                <span className="text-slate-300 font-semibold">Password</span>
                             </label>
                             <input type="password" {...register("password", { minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/ })} placeholder="password" className="input input-bordered" required />
                             {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
@@ -97,13 +97,13 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-white font-semibold">Confirm Password</span>
+                                <span className="text-slate-300 font-semibold">Confirm Password</span>
                             </label>
                             <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" required />
                         </div>
                         <p className="text-red-600">{error}</p>
                         <p className=""> Already have an Account ? <Link to="/login">Login</Link></p>
-                        <input className={`${theme === "light" ? "btn btn-outline" : "btn btn-outline text-white"}`} type="submit" value="Sign up" />
+                        <input className={`${theme === "light" ? "btn btn-outline" : "btn btn-outline text-slate-300"}`} type="submit" value="Sign up" />
                     </form>
                     <SocialLogin></SocialLogin>
                 </div>

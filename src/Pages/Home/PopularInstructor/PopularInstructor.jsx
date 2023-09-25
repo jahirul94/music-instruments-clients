@@ -26,7 +26,7 @@ const PopularInstructor = () => {
                 }
             </div>
             <div className="flex justify-center my-8">
-                {data?.length === 3 ? <button onClick={() => setData(instructors)} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline w-full md:w-1/4`}>See More</button> : <button onClick={() => setData(instructors?.slice(0, 3))} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline w-full md:w-1/4`}>See Less</button>}
+                {data?.length === 3 ? <button onClick={() => setData(instructors)} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline w-full md:w-1/4`}>See More</button> : <button onClick={() => setData(instructors?.slice(0, 3))} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline w-full md:w-1/4`}>See Less</button>}
             </div>
         </div>
     );
