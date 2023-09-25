@@ -5,10 +5,12 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import usePageTItle from "../../hooks/usePageTItle";
+import useTheme from "../../hooks/useTheme";
 
 const Register = () => {
     usePageTItle("Sign up")
     const { createUser, updateUserProfile } = useAuth();
+    const [theme] = useTheme();
     const [error, setError] = useState("")
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -20,10 +22,11 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                if (user) { console.log(user) }
                 // console.log(user);
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        const saveUser = { name: data.name , email: data.email , role : "regular" , image : data.photo}
+                        const saveUser = { name: data.name, email: data.email, role: "regular", image: data.photo }
                         fetch('https://music-instrument-server-navy.vercel.app/users', {
                             method: 'POST',
                             headers: {
@@ -57,19 +60,19 @@ const Register = () => {
     };
 
     return (
-        <div className="hero min-h-screen bg-[#513397]">
+        <div className={`${theme === "light" ? "hero min-h-screen" : "hero min-h-screen text-white"}`}>
             <div className="hero-content flex-col lg:flex-row">
-                <div className="text-center text-white lg:text-left lg:w-1/3">
+                <div className="text-center lg:text-left lg:w-1/3">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
-                    <p className="py-6">Please provide us with some basic information so we can personalize your experience. You'll be asked to enter your name, email address,picture url  and a unique password that ensures the privacy and security of your account. We value your privacy and assure you that your information will be handled with utmost care, following the strictest data protection standards.</p>
+                    <p className="py-6">Please provide us with some basic information so we can personalize your experience. You all be asked to enter your name, email address,picture url  and a unique password that ensures the privacy and security of your account. We value your privacy and assure you that your information will be handled with utmost care, following the strictest data protection standards.</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#6444af]">
+                <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="text-white font-semibold">Name</span>
                             </label>
-                            <input type="text" {...register("name")} placeholder="name" className="input input-bordered" required/>
+                            <input type="text" {...register("name")} placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -99,8 +102,8 @@ const Register = () => {
                             <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" required />
                         </div>
                         <p className="text-red-600">{error}</p>
-                        <p className="text-white"> Already have an Account ? <Link to="/login">Login</Link></p>
-                        <input className="btn btn-primary" type="submit" value="Sign up" />
+                        <p className=""> Already have an Account ? <Link to="/login">Login</Link></p>
+                        <input className={`${theme === "light" ? "btn btn-outline" : "btn btn-outline text-white"}`} type="submit" value="Sign up" />
                     </form>
                     <SocialLogin></SocialLogin>
                 </div>

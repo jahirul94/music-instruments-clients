@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import usePageTItle from '../../../hooks/usePageTItle';
+import useTheme from '../../../hooks/useTheme';
 
 
 const StudentDashboard = () => {
     usePageTItle("My Carts")
+    const [theme] = useTheme();
     const [axiosSecure] = useAxiosSecure();
     const [cartItems, reload, setReload] = useCart();
     const handleDelete = (id) => {
-           axiosSecure.delete(`/studentClasses/${id}`)
+        axiosSecure.delete(`/studentClasses/${id}`)
             .then(data => {
                 if (data.data.deletedCount > 0) {
                     Swal.fire({
@@ -31,14 +33,14 @@ const StudentDashboard = () => {
     return (
         <div className="mx-10 mt-14 mb-6">
             <div className="flex justify-evenly items-center">
-                <p className="text-xl font-bold">Total items : {cartItems.length} </p>
+                <p className="text-xl font-bold">Total items : {cartItems?.length} </p>
                 <p className="text-xl font-bold">Total Price : ${totalPrice} </p>
             </div>
             <div className="divider"></div>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className={theme === "light" ? "text-black" : "text-white"}>
                             <th className="text-lg font-bold">#</th>
                             <th className="text-lg font-bold">Picture</th>
                             <th className="text-lg font-bold">Class Name</th>
@@ -63,8 +65,13 @@ const StudentDashboard = () => {
                                 <td>{cartItem.className}</td>
                                 <td>{cartItem.instructorName}</td>
                                 <td className="text-right">${cartItem.price}</td>
-                                <td className='flex space-x-4'><button onClick={() => handleDelete(cartItem._id)} className="btn btn-outline btn-sm"><FaTrash></FaTrash></button>
-                                    <Link state={{id:cartItem.itemId}} to="/dashboard/payment"><button className="btn btn-outline btn-sm">Pay</button></Link>
+                                <td className='flex space-x-4 items-center'>
+
+                                    <button onClick={() => handleDelete(cartItem._id)} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline btn-sm`}><FaTrash></FaTrash></button>
+
+                                    <Link state={{ id: cartItem.itemId }} to="/dashboard/payment">
+                                        <button className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline btn-sm`}>Pay</button>
+                                    </Link>
                                 </td>
                             </tr>)
                         }

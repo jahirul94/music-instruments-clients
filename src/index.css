@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.carousel .thumbs-wrapper {
+  display: none;
+}
+
+.grayscale {
+  filter: grayscale(0%);
+  transition: filter 0.3s ease-in-out;
+}
+
+a {
+  @apply text-base;
+}
+
+a.active {
+  @apply underline underline-offset-4 bg-transparent text-blue-600 scale-105 transition-transform duration-75;
+}
+

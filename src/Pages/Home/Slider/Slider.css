@@ -1,77 +1,75 @@
 #app {
-    height: 100%;
-  }
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
-  
-  body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
 
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
 
+.swiper {
+  width: 100%;
+  height: 100%;
+}
 
-  /* custom css */
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 
-  .banner-title{
-    text-align: start;
-    font-size: 40px;
-    font-weight: 700;
-  }
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .banner-text{
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* custom css */
+
+.banner-title {
+  text-align: start;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.banner-text {
+  text-align: start;
+  font-size: 20px;
+  font-weight: 500;
+}
+.slider-div {
+  height: 650px;
+}
+@media only screen and (max-width: 600px) {
+  .banner-title {
     text-align: start;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
+    margin: 50px 0px 10px 0px;
+  }
+
+  .banner-text {
+    text-align: start;
+    font-size: 12px;
+    font-weight: 400;
   }
   .slider-div {
-    height: 650px;
+    height: 350px;
   }
-  @media only screen and (max-width: 600px) {
-    .banner-title{
-      text-align: start;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 50px 0px 10px 0px;
-    }
-  
-    .banner-text{
-      text-align: start;
-      font-size: 12px;
-      font-weight: 400;
-    } 
-    .slider-div {
-      height: 350px;
-    }
-  }
+}
+

@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 import useEnrolledClass from "../../hooks/useEnrolledClass";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import usePageTItle from "../../hooks/usePageTItle";
+import useTheme from "../../hooks/useTheme";
 
 const Classes = () => {
   usePageTItle("Classes")
   const { user } = useAuth();
+  const [theme] = useTheme();
   const [isAdmin] = useAdmin();
   const [axiosSecure] = useAxiosSecure();
   const [paymentDetails] = useEnrolledClass();
@@ -52,22 +54,26 @@ const Classes = () => {
           })
         }
       })
-
   }
+
   return (
-    <div className="grid gap-4 px-6 sm:grid-cols-1 lg:grid-cols-3">
+    <div className="grid gap-8 px-6 sm:grid-cols-1 lg:grid-cols-3 py-8 mb-14">
       {
-        classes?.map(singleClass => <div key={singleClass._id} className={singleClass.availableSeats == 0 ? "bg-red-700 card card-compact shadow-xl text-white" : "border border-slate-600 rounded-lg card card-compact bg-[#592bc5] shadow-2xl text-white"}>
+        classes?.map(singleClass => <div key={singleClass._id} className={`${singleClass.availableSeats == 0 ? "bg-red-700" : `${theme === "light" ? "text-black" : "text-white"}`} card card-compact shadow-xl hover:scale-105 transition-transform duration-500`}>
+
           <figure><img src={singleClass.image} className="h-96 w-full" alt="class pic" /></figure>
+
           <div className="card-body">
             <h2 className="card-title">Class Name : {singleClass.className}</h2>
             <h2 className="text-lg font-semibold">Instructor : {singleClass.instructorName}</h2>
             <h2 className="text-lg font-semibold">Available Seats : {singleClass.availableSeats}</h2>
             <h2 className="text-lg font-semibold">Price : ${singleClass.price}</h2>
+
             <div className="card-actions justify-end">
-              {ids.includes(singleClass._id) ? <button className="btn btn-primary w-full">already enrolled</button> :
-                <button onClick={() => handleEnrollClass(singleClass)} disabled={user?.email && isAdmin || isInstructor || singleClass.availableSeats == 0} className="btn btn-primary w-full">Enroll</button>}
+              {ids.includes(singleClass._id) ? <button className="btn btn-outline w-full">already enrolled</button> :
+                <button onClick={() => handleEnrollClass(singleClass)} disabled={user?.email && isAdmin || isInstructor || singleClass.availableSeats == 0} className={`${theme === "light" ? "text-black" : "text-white"} btn btn-outline w-full`}>Enroll</button>}
             </div>
+            
           </div>
         </div>)
       }

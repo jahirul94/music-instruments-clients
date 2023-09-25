@@ -46,7 +46,7 @@ const AddAClass = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content min-w-full">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className=" grid gap-4 sm:grid-cols-1 md:grid-cols-2">

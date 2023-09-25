@@ -1,8 +1,11 @@
+import useTheme from "../hooks/useTheme";
 
 const Footer = () => {
+    const [theme] = useTheme();
+
     return (
-        <div className=" bg-[#6028e0]">
-            <footer className="footer p-10 text-white">
+        <div className={`${theme === "light" ? "bg-base-300" : "text-white bg-base-300"}`}>
+            <footer className="footer p-10">
                 <div>
                     <img className="w-36 rounded-2xl" src="https://previews.123rf.com/images/leszekglasner/leszekglasner1411/leszekglasner141100036/33729380-rock-music-instruments-icons-set-vector-illustration.jpg" alt="" />
                     <h4 className="text-xl mt-2">Rocking music instrument </h4>
@@ -29,9 +32,9 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <footer className="footer footer-center p-4 text-white">
+            <footer className="footer footer-center p-4 ">
                 <div>
-                    <p>Copyright © 2023 - All right reserved by Rocking Music Instrument</p>
+                    <p className="font-semibold">Copyright © 2023 - All right reserved by Rocking Music Instrument</p>
                 </div>
             </footer>
         </div>

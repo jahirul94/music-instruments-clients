@@ -1,29 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
+import useTheme from "../hooks/useTheme";
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
-    const location = useLocation();
-    // toggle start
-    const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+    const [theme , setTheme] = useTheme();
 
+    // toggle start
     const handleToggle = (e) => {
         if (e.target.checked) {
-            setIsDarkMode("dark")
+            setTheme("dark")
         }
         else {
-            setIsDarkMode("light")
+            setTheme("light")
         }
     }
-
-    useEffect(() => {
-        localStorage.setItem("theme", isDarkMode)
-        const localTheme = localStorage.getItem("theme");
-        document.querySelector("html").setAttribute("data-theme", localTheme);
-    }, [isDarkMode])
-    // toggle end
 
 
     const handleLogOut = () => {
@@ -49,22 +41,23 @@ const NavBar = () => {
             }
         })
     }
+    
     const navItem = <>
-        <li><Link className={location.pathname == '/' ? 'underline font-semibold' : 'font-semibold'} to="/">Home</Link></li>
-        <li><Link className={location.pathname == '/instructors' ? 'underline font-semibold' : 'font-semibold'} to='/instructors'>Instructors</Link></li>
-        <li><Link className={location.pathname == '/classes' ? 'underline font-semibold' : 'font-semibold'} to="/classes">Classes</Link></li>
-        {user ? <> <li><Link className={location.pathname == '/dashboard' ? 'underline font-semibold' : 'font-semibold'} to="/dashboard">Dashboard</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to='/instructors'>Instructors</NavLink></li>
+        <li><NavLink to="/classes">Classes</NavLink></li>
+        {user ? <> <li><NavLink to="/dashboard">Dashboard</NavLink></li>
             <li><button onClick={handleLogOut}>Logout</button></li></> :
-            <li><Link className={location.pathname == '/login' ? 'underline font-semibold' : 'font-semibold'} to="/login">Login</Link></li>}
+            <li><NavLink to="/login">Login</NavLink></li>}
     </>
     return (
-        <div className="navbar bg-[#6028e0]  text-white font-bold px-8">
+        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" : "navbar bg-base-300 font-bold px-8 py-2 text-white"}`}>
             <div className="navbar-start">
                 <div className="dropdown z-10">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 bg-[#592bc5] text-white  rounded-box w-52 text-black">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 bg- bg-base-100 rounded-box w-52 text-black">
                         {navItem}
                     </ul>
                 </div>
@@ -80,7 +73,7 @@ const NavBar = () => {
                 <div className="flex flex-col">
                     <div className="form-control mx-4">
                         <label className="swap swap-rotate">
-                            <input onChange={handleToggle} checked={isDarkMode === "light" ? false : true} type="checkbox" />
+                            <input onChange={handleToggle} checked={theme === "light" ? false : true} type="checkbox" />
                             {/* moon icon */}
                             <svg className="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
                             {/* sun icon */}
