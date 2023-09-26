@@ -7,9 +7,9 @@ const InstructorCard = ({ instructor }) => {
     return (
         <div className={`${theme === "light" ? "text-black" : "text-slate-300"} rounded-lg card card-compact shadow-2xl bg-base-100 hover:scale-105 transition-transform duration-500`}>
             <figure><img src={image} className="h-80 w-full" alt="instructor pic" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Instructor Name : {name}</h2>
-                <h2 className="font-semibold">Instructor Email : {email} </h2>
+            <div className="card-body pb-4">
+                <h2 className="card-title">Name : {name}</h2>
+                <h2 className="font-semibold">Email : {email} </h2>
             </div>
         </div>
     );

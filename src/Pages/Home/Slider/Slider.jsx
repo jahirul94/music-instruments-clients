@@ -1,26 +1,52 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Slider = () => {
 
     return (
         <div>
-            <Carousel autoPlay infiniteLoop >
-                <div>
-                    <img className="h-[800px] grayscale" src="https://cdn.mos.cms.futurecdn.net/gD3ojQis57J4wJWbeUCgwe.jpg" alt="" />
-                    <p className="legend"><span className="font-semibold">Discover the power of melody, rhythm, and harmony as you learn to play your favorite instrument. Our expert instructors and comprehensive curriculum will guide you on a musical journey like no other.From beginners to seasoned musicians, our classes cater to all skill levels. Whether you aspire to strum the guitar, tickle the ivories of a piano, or create mesmerizing beats on the drums, our dedicated team is here to help you achieve your musical goals.</span></p>
-                </div>
-                <div>
-                    <img className="h-[800px]" src="https://www.musicnotes.com/blog/content/images/2023/03/Acoustic-Guitar-Songs-Beginners.jpg" alt="" />
-                    <p className="legend"><span className="font-semibold">Harmonize Your Journey</span></p>
-                </div>
-                <div>
-                    <img className="h-[800px]" src="https://cdn.mos.cms.futurecdn.net/gD3ojQis57J4wJWbeUCgwe.jpg" alt="" />
-                    <p className="legend"><span className="font-semibold">Discover the power of melody, rhythm, and harmony as you learn to play your favorite instrument. Our expert instructors and comprehensive curriculum will guide you on a musical journey like no other.From beginners to seasoned musicians, our classes cater to all skill levels. Whether you aspire to strum the guitar, tickle the ivories of a piano, or create mesmerizing beats on the drums, our dedicated team is here to help you achieve your musical goals.</span></p>
-                </div>
-            </Carousel>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+                >
+                <SwiperSlide>
+                    <div className="relative">
+                        <img className="max-h-[800px] w-full" src="https://cdn.mos.cms.futurecdn.net/gD3ojQis57J4wJWbeUCgwe.jpg" alt="" />
+                        <p className="absolute bottom-10 bg-[#493E45] text-white px-4 rounded-2xl py-2 
+                        font-semibold w-[90%] text-center mx-auto left-[5%]">Harmonize Your Journey</p>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="relative">
+                        <img className="max-h-[800px] w-full" src="https://www.musicnotes.com/blog/content/images/2023/03/Acoustic-Guitar-Songs-Beginners.jpg" alt="" />
+                        <p className="absolute bottom-10 bg-[#D5D9E3] text-[#493E45] px-4 
+                        rounded-2xl py-2 font-semibold  w-[90%] text-center mx-auto left-[5%]">Harmonize Your Journey</p>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="relative">
+                        <img className="max-h-[800px] w-full" src="https://cdn.mos.cms.futurecdn.net/gD3ojQis57J4wJWbeUCgwe.jpg" alt="" />
+                        <p className="absolute bottom-10 bg-[#493E45] text-white px-4 rounded-2xl py-2 
+                        font-semibold w-[90%] text-center mx-auto left-[5%]">Harmonize Your Journey</p>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
         </div>
     );
 };

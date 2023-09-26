@@ -21,14 +21,14 @@ const PopularClasses = () => {
             <SectionHeader heading="Our Popular Classes" subHeading="Explore Popular Classes"></SectionHeader>
             <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
                 {
-                    data?.map(sd => <div key={sd._id} className={`${theme === "light" ? "text-black" : "text-slate-300"} rounded-lg card card-compact bg-base-100 shadow-2xl hover:scale-105 transition-transform duration-500`}>
-                        <figure><img src={sd.image} className="h-96 w-full" alt="class pic" /></figure>
+                    data?.map(sd => <div key={sd._id} className={`${theme === "light" ? "text-black" : "text-slate-300"} rounded-lg card card-compact bg-base-100 shadow-2xl`}>
+                        <figure><img src={sd.image} className="h-96 w-full  hover:scale-125 transition-transform duration-500" alt="class pic" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Class Name : {sd.className}</h2>
                             <h2 className="text-lg font-semibold">Instructor : {sd.instructorName} </h2>
                             <h2 className="text-lg font-semibold">Available Seats : {sd.availableSeats} </h2>
                             <h2 className="text-lg font-semibold">Price : ${sd.price}</h2>
-                            <Link to="/classes"><button className={`${theme === "light" ? "btn btn-outline w-full" : "btn btn-outline w-full text-slate-300"}`}>Buy Now</button></Link>
+                            <Link to="/classes"><button className={`${theme === "light" ? "btn btn-outline w-full" : "btn btn-outline w-full text-slate-300"}`}>Enroll Now</button></Link>
                         </div>
                     </div>)
                 }

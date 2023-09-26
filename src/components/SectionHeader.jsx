@@ -5,8 +5,8 @@ const SectionHeader = ({ heading, subHeading }) => {
     const [theme] = useTheme();
 
     return (
-        <div className="mt-24 mb-6">
-            <div className={theme === "light" ? "text-center py-4 font-bold" : "text-center py-4 font-bold text-slate-300"}>
+        <div className="mt-10 md:mt-24 mb-6">
+            <div className={`${theme === "light" ? "text-[#493E45]" : "text-slate-300"} font-[Poppins] text-center py-4 font-bold text-xl md:text-3xl lg:text-5xl `}>
                 <TypeAnimation
                     sequence={[
                         `${heading}`,
@@ -19,11 +19,10 @@ const SectionHeader = ({ heading, subHeading }) => {
                         2000,
                     ]}
                     speed={50}
-                    style={{ fontSize: '3em' }}
                     repeat={Infinity}
                 />
                 {/* <h2 className="text-4xl mb-2">{heading}</h2> */}
-                <p className="text-lg mt-2">{subHeading}</p>
+                <p className="text-base md:text-lg mt-2">{subHeading}</p>
             </div>
             <div className="border-b-2 border-gray-700"></div>
         </div>

@@ -77,7 +77,7 @@ const router = createBrowserRouter([
           element : <StudentRoute><Payment></Payment></StudentRoute>,
           loader : () => fetch("https://music-instrument-server-navy.vercel.app/displayclasses")
         },
-        {
+        { 
           path :"enrollClass",
           element : <StudentRoute><EnrollClass></EnrollClass></StudentRoute>
         },
