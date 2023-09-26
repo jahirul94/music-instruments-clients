@@ -67,11 +67,12 @@ const Classes = () => {
           <figure><img src={singleClass.image} className="h-96 w-full hover:scale-125 transition-transform duration-500" alt="class pic" /></figure>
 
           <div className="card-body">
-            <h2 className="card-title">Class Name : {singleClass.className}</h2>
-            <h2 className="text-lg font-semibold">Instructor : {singleClass.instructorName}</h2>
-            <h2 className="text-lg font-semibold">Available Seats : {singleClass.availableSeats}</h2>
-            <h2 className="text-lg font-semibold">Price : ${singleClass.price}</h2>
-
+            <div>
+              <h2 className="text-2xl font-bold font-[poppins]">Class Name : {singleClass.className}</h2>
+              <h2 className="text-lg font-semibold">Instructor : {singleClass.instructorName}</h2>
+              <h2 className="text-lg font-semibold">Available Seats : {singleClass.availableSeats}</h2>
+              <h2 className="text-lg font-semibold">Price : ${singleClass.price}</h2>
+            </div>
             <div className="card-actions justify-end">
               {ids.includes(singleClass._id) ? <button className="btn btn-outline w-full">already enrolled</button> :
                 <button onClick={() => handleEnrollClass(singleClass)} disabled={user?.email && isAdmin || isInstructor || singleClass.availableSeats == 0} className={`${theme === "light" ? "text-black" : "text-slate-300"} btn btn-outline w-full`}>Enroll</button>}

@@ -7,8 +7,8 @@ const Footer = () => {
         <div className={`${theme === "light" ? "bg-base-300" : "text-slate-300 bg-base-300"} font-[Roboto]`}>
             <footer className="footer p-10">
                 <div>
-                    <img className="w-36 rounded-2xl" src="https://previews.123rf.com/images/leszekglasner/leszekglasner1411/leszekglasner141100036/33729380-rock-music-instruments-icons-set-vector-illustration.jpg" alt="" />
-                    <h4 className="text-xl mt-2">Rocking music instrument </h4>
+                    <img className="w-36 h-20" src="https://i.ibb.co/4WGDd4s/379919962-674924747919702-4777339216054440254-n.png" alt="" />
+                    <h4 className="text-lg lg:text-2xl mt-2">Rocking music instrument </h4>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>

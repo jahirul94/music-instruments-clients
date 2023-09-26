@@ -19,3 +19,6 @@ a.active {
   @apply underline underline-offset-4 bg-transparent text-blue-600 scale-105 transition-transform duration-75;
 }
 
+.social-icon {
+  @apply text-4xl hover:scale-150 transition-transform duration-300;
+}
