@@ -37,7 +37,7 @@ const SocialLogin = () => {
     }
     return (
         <div className='flex justify-center -mt-4 mb-5'>
-            <button onClick={handleLoginWithGoogle} className={theme === "light" ? 'flex btn btn-outline w-[85%]' : 'flex btn btn-outline w-[85%] text-slate-300'}>Login With <FaGoogle className='text-xl'></FaGoogle></button>
+            <button onClick={handleLoginWithGoogle} className={theme === "light" ? 'flex btn btn-outline w-[90%]' : 'flex btn btn-outline w-[90%] text-slate-300'}>Login With <FaGoogle className='text-xl'></FaGoogle></button>
         </div>
     );
 };

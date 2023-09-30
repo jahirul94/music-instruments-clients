@@ -50,44 +50,44 @@ const AddAClass = () => {
 
     return (
         <div>
-            <div className={`${theme === "light" ? "text-black" : "text-slate-300"} hero min-h-screen`}>
+            <div className={`${theme === "light" ? "text-black" : "text-slate-300"} lg:my-20 min-h-screen`}>
                 <div className="hero-content min-w-full">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className=" grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Class Name</span>
+                                    <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Class Name</span>
                                 </label>
                                 <input type="text" {...register("className", { required: true })} placeholder="class name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Instructor name</span>
+                                    <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Instructor name</span>
                                 </label>
                                 <input type="text" {...register("instructorName", { required: true })} placeholder="instructor name" defaultValue={user?.displayName} className="input input-bordered" readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Instructor email</span>
+                                    <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Instructor email</span>
                                 </label>
                                 <input type="text" {...register("instructorEmail", { required: true })} defaultValue={user?.email} placeholder="instructor email" className="input input-bordered" readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Available seats</span>
+                                    <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Available seats</span>
                                 </label>
                                 <input type="text" {...register("availableSeats", { required: true })} placeholder="available seats" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Price</span>
+                                    <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Price</span>
                                 </label>
                                 <input type="number" {...register("price", { required: true })} placeholder="Price" className="input input-bordered" />
                             </div>
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Class Image</span>
+                                <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Class Image</span>
                             </label>
                             <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
                         </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import InstructorCard from "../../../components/InstructorCard";
 import useTheme from "../../../hooks/useTheme";
 
+
 const PopularInstructor = () => {
     const [data, setData] = useState([])
     const [theme] = useTheme();
@@ -17,6 +18,7 @@ const PopularInstructor = () => {
             return res.data;
         }
     })
+
     return (
         <div>
             <SectionHeader heading="Our Popular Instructors" subHeading="Explore Our Popular Instructor"></SectionHeader>

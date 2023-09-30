@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import usePageTItle from "../../hooks/usePageTItle";
 import InstructorCard from "../../components/InstructorCard";
 
+
 const Instructor = () => {
   const instructors = useLoaderData();
   usePageTItle("Instructor")

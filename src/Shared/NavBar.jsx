@@ -62,7 +62,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <Link to="/"><img className="ms-4 w-24 h-12" src="https://i.ibb.co/4WGDd4s/379919962-674924747919702-4777339216054440254-n.png" alt="" /></Link>
-                <Link to="/" className="btn btn-ghost normal-case lg:text-xl sm:text-lg">Rocking Music Instrument</Link>
+                <Link to="/" className="ms-4 normal-case lg:text-2xl sm:text-lg">Rocking Music Instrument</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

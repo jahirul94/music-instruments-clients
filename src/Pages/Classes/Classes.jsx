@@ -9,6 +9,7 @@ import usePageTItle from "../../hooks/usePageTItle";
 import useTheme from "../../hooks/useTheme";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const Classes = () => {
   usePageTItle("Classes")
@@ -20,7 +21,7 @@ const Classes = () => {
   const [isInstructor] = useInstructors();
   const [ids, setIds] = useState([]);
 
-  const { data: classes = [] } = useQuery({
+  const { data: classes = [], isLoading } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
       const res = await axios.get("https://music-instrument-server-navy.vercel.app/displayclasses")
@@ -57,6 +58,12 @@ const Classes = () => {
           })
         }
       })
+  }
+
+  if (isLoading) {
+    return <div className="min-h-screen">
+      <Loading></Loading>
+    </div>
   }
 
   return (
