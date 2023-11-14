@@ -51,7 +51,9 @@ const NavBar = () => {
             <li><NavLink to="/login">Login</NavLink></li>}
     </>
     return (
-        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" : "navbar bg-base-300 font-bold px-8 py-2 text-slate-300"} font-[Roboto]`}>
+        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" :
+            "navbar bg-base-300 font-bold px-8 py-2 text-slate-300"} sticky top-0 z-50 font-[Roboto]`}>
+
             <div className="navbar-start">
                 <div className="dropdown z-10">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,9 +63,11 @@ const NavBar = () => {
                         {navItem}
                     </ul>
                 </div>
+
                 <Link to="/"><img className="ms-4 w-24 h-12" src="https://i.ibb.co/4WGDd4s/379919962-674924747919702-4777339216054440254-n.png" alt="" /></Link>
                 <Link to="/" className="ms-4 normal-case lg:text-2xl sm:text-lg">Rocking Music Instrument</Link>
             </div>
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navItem}
@@ -81,7 +85,8 @@ const NavBar = () => {
                         </label>
                     </div>
                 </div>
-                {user && <img className="rounded-full lg:w-12 lg:h-12 sm:w-10 h-10" title={user?.displayName} src={user?.photoURL} alt="" />}
+                <img className="rounded-full lg:w-12 lg:h-12 sm:w-10 h-10" title={user?.displayName}
+                    src={user?.photoURL ? user?.photoURL : "https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg"} alt="" />
             </div>
         </div>
     );

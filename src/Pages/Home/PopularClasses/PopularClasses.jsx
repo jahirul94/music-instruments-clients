@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import useTheme from "../../../hooks/useTheme";
 
 
-
 const PopularClasses = () => {
     const [theme] = useTheme();
     const { data } = useQuery({
@@ -16,10 +15,9 @@ const PopularClasses = () => {
         }
     })
 
-
     return (
         <div>
-            <SectionHeader heading="Our Popular Classes" subHeading="Explore Popular Classes"></SectionHeader>
+            <SectionHeader heading="Popular Classes" subHeading="Explore Popular Classes"></SectionHeader>
             <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
                 {
                     data?.map(sd => <div key={sd._id} className={`${theme === "light" ? "text-black" : "text-slate-300"} rounded-lg card card-compact bg-base-100 shadow-2xl`}>

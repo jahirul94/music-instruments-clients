@@ -41,7 +41,7 @@ const Login = () => {
                 <div className="w-full md:w-1/2">
                     <Lottie animationData={animation} loop={true} className="w-full md:h-[750px] md:me-8" />
                 </div>
-                <div className="w-full md:w-1/2 shadow-2xl h-[500px]">
+                <div className="w-full rounded-xl md:w-1/2 shadow-2xl h-[500px]">
                     <h1 className="text-5xl font-bold py-4 text-center cursor-pointer">Login now!</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">

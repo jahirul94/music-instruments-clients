@@ -21,7 +21,7 @@ const PopularInstructor = () => {
 
     return (
         <div>
-            <SectionHeader heading="Our Popular Instructors" subHeading="Explore Our Popular Instructor"></SectionHeader>
+            <SectionHeader heading="Popular Instructors" subHeading="Explore Our Popular Instructor"></SectionHeader>
             <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
                 {
                     data?.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)

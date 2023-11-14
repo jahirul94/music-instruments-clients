@@ -23,10 +23,7 @@ const Register = () => {
 
 
     const onSubmit = data => {
-        if (data.password !== data.confirmPassword) {
-            setError("Password and Confirm Password don't match")
-            return
-        }
+
         const formData = new FormData();
         formData.append('image', data.image[0])
 
@@ -81,13 +78,13 @@ const Register = () => {
     };
 
     return (
-        <div className={`${theme === "light" ? "min-h-screen" : "min-h-screen text-slate-300"} w-full md:w-3/4 md:mx-auto`}>
+        <div className={`${theme === "light" ? "min-h-screen" : "min-h-screen text-slate-300"} w-full my-8 md:w-3/4 md:mx-auto`}>
             <div className="flex flex-col md:flex-row">
                 <div className="w-full p-4 md:p-0 md:w-1/2">
                     <Lottie animationData={animation} loop={true} className="w-full md:h-[750px] md:me-8" />
                 </div>
-                <div className="shadow-2xl p-4 w-full md:m-4 md:w-1/2">
-                    <h1 className="text-2xl md:text-4xl text-center font-bold lg:pt-6 lg:pb-2">Sign Up now!</h1>
+                <div className="shadow-2xl rounded-xl p-4 w-full md:m-4 md:w-1/2">
+                    <h1 className="text-2xl md:text-4xl text-center font-bold lg:pt-4 lg:pb-2">Sign Up now!</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -109,12 +106,6 @@ const Register = () => {
                             {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                             {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters or Upper</p>}
                             {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase and one special character.</p>}
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className={`${theme === "light" ? "text-black" : "text-slate-300"} font-semibold`}>Confirm Password</span>
-                            </label>
-                            <input type="password" {...register("confirmPassword")} placeholder="confirm-password" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
