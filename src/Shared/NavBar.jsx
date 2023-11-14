@@ -51,21 +51,21 @@ const NavBar = () => {
             <li><NavLink to="/login">Login</NavLink></li>}
     </>
     return (
-        <div className={`${theme === "light" ? "navbar bg-base-300 font-bold px-8 py-2 light" :
-            "navbar bg-base-300 font-bold px-8 py-2 text-slate-300"} sticky top-0 z-50 font-[Roboto]`}>
+        <div className={`${theme === "light" ? "navbar bg-base-300 light" :
+            "navbar bg-base-300 text-slate-300"} font-bold px-0 md:px-8 py-2 sticky top-0 z-50 font-[Roboto]`}>
 
             <div className="navbar-start">
                 <div className="dropdown z-10">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 bg- bg-base-100 rounded-box w-52 text-black">
+                    <ul tabIndex={0} className="dropdown-content px-6 py-4 bg-base-300 rounded-br-xl font-bold">
                         {navItem}
                     </ul>
                 </div>
 
-                <Link to="/"><img className="ms-4 w-24 h-12" src="https://i.ibb.co/4WGDd4s/379919962-674924747919702-4777339216054440254-n.png" alt="" /></Link>
-                <Link to="/" className="ms-4 normal-case lg:text-2xl sm:text-lg">Rocking Music Instrument</Link>
+                <Link to="/"><img className="hidden lg:block mx-2 w-16 h-8 md:w-24 md:h-12" src="https://i.ibb.co/4WGDd4s/379919962-674924747919702-4777339216054440254-n.png" alt="" /></Link>
+                <Link to="/" className="mx-2 text-md md:text-2xl">Rocking Music Instrument</Link>
             </div>
 
             <div className="navbar-center hidden lg:flex">
@@ -86,7 +86,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 <img className="rounded-full lg:w-12 lg:h-12 sm:w-10 h-10" title={user?.displayName}
-                    src={user?.photoURL ? user?.photoURL : "https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg"} alt="" />
+                    src={user?.photoURL ? user?.photoURL : "https://thewanderers.travel/data_content/meet-the-wanderers/blank-user-img.jpg"} alt="" />
             </div>
         </div>
     );
